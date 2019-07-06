@@ -51,7 +51,7 @@ class Bucket
         }
     }
 
-    public function execute_script($jsContent)
+    public function executeScript($jsContent)
     {
         $this->executeFooterScripts[] = $jsContent;
     }
@@ -86,7 +86,7 @@ class Bucket
         return $this->executeFooterScripts;
     }
 
-    protected function isRegistered($handler, $isStylesheet = true)
+    public function isRegistered($handler, $isStylesheet = true)
     {
         /**
          * Get all handler keys

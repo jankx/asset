@@ -11,4 +11,16 @@ class CssItem extends Item
         parent::__construct($id, $url, $dependences, $version);
         $this->media = $media;
     }
+
+    public function callDependences($dependences)
+    {
+    }
+
+    public function call()
+    {
+    }
+
+    public function register()
+    {
+    }
 }

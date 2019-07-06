@@ -40,5 +40,6 @@ class Manager
 
     public function registerScripts()
     {
+        var_dump($this->bucket);die;
     }
 }
