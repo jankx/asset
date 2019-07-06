@@ -19,6 +19,10 @@ function init_script()
 {
 }
 
-function excute_script()
+function execute_script()
+{
+}
+
+function is_registered_asset($isStylesheet = true)
 {
 }
