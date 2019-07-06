@@ -16,33 +16,29 @@ class Manager
 
     public function __construct()
     {
-        $this->loadHelpers();
         $this->createBucket();
-        $this->registerScripts();
-    }
-
-    protected function loadHelpers()
-    {
-        $helpers = array(
-            dirname(__FILE__) . '/../helpers.php',
-        );
-
-        foreach ($helpers as $helper) {
-            $helper = realpath($helper);
-            if ($helper) {
-                require_once $helper;
-            }
-        }
+        $this->initHooks();
     }
 
     protected function createBucket()
     {
+        /**
+         * Create bucket property for Asset manager
+         */
         $this->bucket = new Bucket();
+
+        /**
+         * Create asset bucket global variable
+         */
+        $GLOBALS['asset_bucket'] = $this->bucket;
     }
 
-    protected function registerScripts()
+    protected function initHooks()
+    {
+        add_action('wp_enqueue_scripts', array($this, 'registerScripts'));
+    }
+
+    public function registerScripts()
     {
     }
-
-    public function add
 }
