@@ -7,7 +7,8 @@ class CssItem extends Item
 {
     public $media = true;
 
-    public function __construct($id, $url, $dependences, $version, $media = 'all') {
+    public function __construct($id, $url, $dependences, $version, $media = 'all')
+    {
         parent::__construct($id, $url, $dependences, $version);
         $this->media = $media;
     }
@@ -16,7 +17,7 @@ class CssItem extends Item
     {
     }
 
-    public function call()
+    public function call($handler = null)
     {
     }
 

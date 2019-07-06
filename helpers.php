@@ -1,6 +1,16 @@
 <?php
 function asset()
 {
+    return \Jankx\Asset\Manager::instance();
+}
+
+function jankx_core_asset_url($path)
+{
+    return sprintf(
+        '%s/assets/resources/%s',
+        Jankx::vendorUrl(),
+        $path
+    );
 }
 
 function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all')
