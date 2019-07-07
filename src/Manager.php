@@ -103,6 +103,16 @@ class Manager
                 $theme->get('Version'),
             );
         }
+
+        /**
+         * Added no post thumbnail CSS
+         */
+        style(
+            sprintf(
+                '.no-thumbnail span {background-image: url("%s");}',
+                Jankx::defaultThumbnail()
+            )
+        );
     }
 
     public function setupAssetManager($jankx)
@@ -110,6 +120,7 @@ class Manager
         $jankx->defaultThumbnail = function() {
             return apply_filters(
                 'jankx_base64_default_thumbnail',
+                sprintf('%s/assets/resources/img/noimage.svg', Jankx::vendorUrl())
             );
         };
     }
@@ -141,6 +152,23 @@ class Manager
 
     public function registerHeaderStyles()
     {
+        $css = '<style>';
+        $allStyles = $this->bucket->getStyles();
+        foreach ($allStyles as $media => $styles) {
+            if ($media === 'all') {
+                foreach ($styles as $style) {
+                    $css .= $style;
+                }
+            } else {
+                foreach ($styles as $style) {
+                    $css .= sprintf('@media %1%s {
+                        %2%ss
+                    }', $media, $style);
+                }
+            }
+        }
+        $css .= '</style>';
+        echo $css;
     }
 
     public function registerHeaderScripts()
