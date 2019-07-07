@@ -1,10 +1,14 @@
 <?php
 namespace Jankx\Asset;
 
+use Jankx;
+use Jankx\Theme;
+
 class Manager
 {
     protected static $instance;
     protected $bucket;
+    protected $theme;
 
     public static function instance()
     {
@@ -16,8 +20,9 @@ class Manager
 
     public function __construct()
     {
+        $this->theme = Theme::instance();
+
         $this->createBucket();
-        $this->registerDefaultAssets();
         $this->initHooks();
     }
 
@@ -36,6 +41,8 @@ class Manager
 
     protected function initHooks()
     {
+        add_action('init', array($this, 'registerDefaultAssets'));
+        add_action('jankx_setup_environment', array($this, 'setupAssetManager'));
         add_action('wp_enqueue_scripts', array($this, 'registerScripts'));
         add_action('wp_head', array($this, 'registerHeaderStyles'));
         add_action('wp_head', array($this, 'registerHeaderScripts'));
@@ -59,7 +66,6 @@ class Manager
 
             css($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['media']);
         }
-
         /**
          * Register default JS resources to Jankx Asset Manager
          */
@@ -84,12 +90,53 @@ class Manager
          * Unset the life default assets after register to Jankx Asset Manager
          */
         unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
+
+        $jankxCssDependences = apply_filters('jankx_template_css_dependences', []);
+
+        if (is_child_theme()) {
+        } else {
+            $theme = $this->theme->getInstance();
+            css(
+                $theme->get_stylesheet(),
+                get_stylesheet_uri(),
+                $jankxCssDependences,
+                $theme->get('Version'),
+            );
+        }
+    }
+
+    public function setupAssetManager($jankx)
+    {
+        $jankx->defaultThumbnail = function() {
+            return apply_filters(
+                'jankx_base64_default_thumbnail',
+            );
+        };
+    }
+
+    protected function callDefaultAssets()
+    {
+        $theme = $this->theme->getInstance();
+        css($theme->get_stylesheet());
     }
 
     public function registerScripts()
     {
-        // var_dump($this->bucket);
-        // die;
+        $this->callDefaultAssets();
+
+        foreach($this->bucket->getStylesheets() as $handler => $cssItem) {
+            $cssItem->register();
+        }
+
+        foreach ($this->bucket->getEnqueueCss() as $handler) {
+            if ($this->bucket->isRegistered($handler, true)) {
+                $asset = $this->bucket->getStylesheet($handler);
+                $asset->call();
+            } else {
+
+                wp_enqueue_style($handler);
+            }
+        }
     }
 
     public function registerHeaderStyles()
@@ -107,4 +154,6 @@ class Manager
     public function executeFooterScript()
     {
     }
+
+
 }

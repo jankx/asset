@@ -5,7 +5,7 @@ interface ItemInterface
 {
     public function callDependences($dependences);
 
-    public function call($handler = null);
+    public function call();
 
     public function register();
 }
