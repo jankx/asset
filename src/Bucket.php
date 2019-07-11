@@ -37,7 +37,7 @@ class Bucket
     public function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true)
     {
         if (!empty($jsUrl)) {
-            $jsItem = new JsItem($handler, $jsUrl, $dependences, $version, $initFooterScripts);
+            $jsItem = new JsItem($handler, $jsUrl, $dependences, $version, $isFooterScript);
             $this->footerScripts[$handler] = $jsItem;
         } elseif ($this->isRegistered($handler, false)) {
             $this->enqueueJS[] = $handler;

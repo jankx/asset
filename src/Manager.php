@@ -144,7 +144,6 @@ class Manager
                 $asset = $this->bucket->getStylesheet($handler);
                 $asset->call();
             } else {
-
                 wp_enqueue_style($handler);
             }
         }
