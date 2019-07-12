@@ -3,10 +3,6 @@ namespace Jankx\Asset;
 
 class Bucket
 {
-    const JANKX_HEADER_INIT_SCRIPT = 1;
-    const JANKX_FOOTER_INIT_SCRIPT = 2;
-    const JANKX_FOOTER_EXEC_SCRIPT = 3;
-
     public $headerScripts = [],
         $headerStyles = [],
         $stylesheets = [],
