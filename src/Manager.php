@@ -33,7 +33,7 @@ class Manager
         /**
          * Create bucket property for Asset manager
          */
-        $this->bucket = new Bucket();
+        $this->bucket = Bucket::instance();
 
         /**
          * Create asset bucket global variable

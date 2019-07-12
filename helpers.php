@@ -1,7 +1,7 @@
 <?php
 function asset()
 {
-    return \Jankx\Asset\Manager::instance();
+    return \Jankx\Asset\Bucket::instance();
 }
 
 function jankx_core_asset_url($path)
@@ -16,7 +16,7 @@ function jankx_core_asset_url($path)
 function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all')
 {
     return call_user_func(
-        array($GLOBALS['asset_bucket'], 'css'),
+        array(asset(), 'css'),
         $handler,
         $cssUrl,
         $dependences,
@@ -28,7 +28,7 @@ function css($handler, $cssUrl = null, $dependences = [], $version = null, $medi
 function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true)
 {
     return call_user_func(
-        array($GLOBALS['asset_bucket'], 'js'),
+        array(asset(), 'js'),
         $handler,
         $jsUrl,
         $dependences,
@@ -40,7 +40,7 @@ function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFoot
 function style($cssContent, $media = 'all')
 {
     return call_user_func(
-        array($GLOBALS['asset_bucket'], 'style'),
+        array(asset(), 'style'),
         $cssContent,
         $media
     );
@@ -49,7 +49,7 @@ function style($cssContent, $media = 'all')
 function init_script($js, $isHeaderScript = false)
 {
     return call_user_func(
-        array($GLOBALS['asset_bucket'], 'script'),
+        array(asset(), 'script'),
         $js,
         $isHeaderScript
     );
@@ -58,7 +58,7 @@ function init_script($js, $isHeaderScript = false)
 function execute_script($jsContent)
 {
     return call_user_func(
-        array($GLOBALS['asset_bucket'], 'executeScript'),
+        array(asset(), 'executeScript'),
         $jsContent
     );
 }
@@ -66,7 +66,7 @@ function execute_script($jsContent)
 function is_registered_asset($handler, $isStylesheet = true)
 {
     return call_user_func(
-        array($GLOBALS['asset_bucket'], 'isRegistered'),
+        array(asset(), 'isRegistered'),
         $handler,
         $isStylesheet
     );

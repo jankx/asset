@@ -3,15 +3,25 @@ namespace Jankx\Asset;
 
 class Bucket
 {
-    public $headerScripts = [],
-        $headerStyles = [],
-        $stylesheets = [],
-        $initFooterScripts = [],
-        $footerScripts = [],
-        $executeFooterScripts = [];
+    protected static $instance;
 
-    public $enqueueCSS = [],
-        $enqueueJS = [];
+    public $headerScripts = [];
+    public $headerStyles = [];
+    public $stylesheets = [];
+    public $initFooterScripts = [];
+    public $footerScripts = [];
+    public $executeFooterScripts = [];
+
+    public $enqueueCSS = [];
+    public $enqueueJS = [];
+
+    public static function instance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
     public function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all')
     {
