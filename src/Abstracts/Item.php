@@ -5,9 +5,10 @@ use Jankx\Asset\Interfaces\ItemInterface;
 
 abstract class Item implements ItemInterface
 {
+    protected $hasDependences = false;
+    public $dependences = [];
     public $id;
     public $url = '';
-    public $dependences = [];
     public $version = null;
 
     public function __construct($id, $url, $dependences, $version)
@@ -16,5 +17,19 @@ abstract class Item implements ItemInterface
         $this->url = $url;
         $this->dependences = $dependences;
         $this->version = $version;
+
+        if (count($dependences) > 0) {
+            $this->hasDependences = true;
+        }
+    }
+
+    public function hasDependences()
+    {
+        return $this->hasDependences;
+    }
+
+    public function getDependences()
+    {
+        return $this->dependences;
     }
 }

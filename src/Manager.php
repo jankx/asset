@@ -3,12 +3,14 @@ namespace Jankx\Asset;
 
 use Jankx;
 use Jankx\Theme;
+use Jankx\Asset\Abstracts\Item as AssetItem;
 
 class Manager
 {
     protected static $instance;
     protected $bucket;
     protected $theme;
+    protected $mainStylesheet;
 
     public static function instance()
     {
@@ -43,7 +45,9 @@ class Manager
     {
         add_action('init', array($this, 'registerDefaultAssets'));
         add_action('jankx_setup_environment', array($this, 'setupAssetManager'));
-        add_action('wp_enqueue_scripts', array($this, 'registerScripts'));
+
+        add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
+
         add_action('wp_head', array($this, 'registerHeaderStyles'));
         add_action('wp_head', array($this, 'registerHeaderScripts'));
         add_action('wp_footer', array($this, 'initFooterScripts'), 5);
@@ -97,17 +101,25 @@ class Manager
         unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
 
         $jankxCssDependences = apply_filters('jankx_template_css_dependences', ['fontawesome']);
-
+        $stylesheetName = $this->theme->getInstance()->get_stylesheet();
         if (is_child_theme()) {
-        } else {
-            $theme = $this->theme->getInstance();
+            $jankx = $this->theme->getTemplate()->getInstance();
+            $stylesheetUri = sprintf('%s/style.css', get_template_directory());
+            $jankxCssDependences[] = $jankx;
             css(
-                $theme->get_stylesheet(),
-                get_stylesheet_uri(),
-                $jankxCssDependences,
-                $theme->get('Version'),
+                $jankx->get_stylesheet(),
+                $stylesheetUri,
+                array(),
+                $jankx->get('Version'),
             );
         }
+        css(
+            $stylesheetName,
+            get_stylesheet_uri(),
+            $jankxCssDependences,
+            $this->theme->get('Version'),
+        );
+        $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName);
 
         /**
          * Added no post thumbnail CSS
@@ -122,7 +134,7 @@ class Manager
 
     public function setupAssetManager($jankx)
     {
-        $jankx->defaultThumbnail = function() {
+        $jankx->defaultThumbnail = function () {
             return apply_filters(
                 'jankx_base64_default_thumbnail',
                 sprintf('%s/assets/resources/img/noimage.svg', Jankx::vendorUrl())
@@ -132,17 +144,35 @@ class Manager
 
     protected function callDefaultAssets()
     {
-        $theme = $this->theme->getInstance();
-        css($theme->get_stylesheet());
+        css($this->mainStylesheet);
+    }
+
+    public function registerStylesheets($dependences)
+    {
+        foreach ($dependences as $handler => $cssItem) {
+            if (!$cssItem instanceof AssetItem) {
+                $cssItem = $this->bucket->getStylesheet($cssItem);
+
+                if (empty($cssItem)) {
+                    continue;
+                }
+            }
+
+            if ($cssItem->hasDependences()) {
+                $this->registerStylesheets($cssItem->getDependences());
+            }
+
+            $cssItem->register();
+        }
     }
 
     public function registerScripts()
     {
         $this->callDefaultAssets();
 
-        foreach($this->bucket->getStylesheets() as $handler => $cssItem) {
-            $cssItem->register();
-        }
+        $this->registerStylesheets(
+            $this->bucket->getStylesheets()
+        );
 
         foreach ($this->bucket->getEnqueueCss() as $handler) {
             if ($this->bucket->isRegistered($handler, true)) {
@@ -186,6 +216,4 @@ class Manager
     public function executeFooterScript()
     {
     }
-
-
 }
