@@ -55,7 +55,12 @@ class Manager
         /**
          * Register default CSS resource to Jankx Asset Manager
          */
-        $defaultAssetCSS = apply_filters('jankx_default_css_resources', array());
+        $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
+            'fontawesome' => array(
+                'url' => jankx_core_asset_url('vendor/fontawesome/css/all.css'),
+                'version' => '5.9.0',
+            )
+        ));
         foreach ($defaultAssetCSS as $handler => $asset) {
             $asset = wp_parse_args($asset, array(
                 'url' => '',
@@ -91,7 +96,7 @@ class Manager
          */
         unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
 
-        $jankxCssDependences = apply_filters('jankx_template_css_dependences', []);
+        $jankxCssDependences = apply_filters('jankx_template_css_dependences', ['fontawesome']);
 
         if (is_child_theme()) {
         } else {
