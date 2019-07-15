@@ -1,5 +1,5 @@
 {
-  "name": "jankx/assets",
+  "name": "jankx/asset",
   "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax",
   "type": "library",
   "license": "MIT",
