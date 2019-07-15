@@ -100,12 +100,13 @@ class Manager
          */
         unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
 
-        $jankxCssDependences = apply_filters('jankx_template_css_dependences', ['fontawesome']);
+        $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['fontawesome']);
         $stylesheetName = $this->theme->getInstance()->get_stylesheet();
+
         if (is_child_theme()) {
             $jankx = $this->theme->getTemplate()->getInstance();
             $stylesheetUri = sprintf('%s/style.css', get_template_directory());
-            $jankxCssDependences[] = $jankx;
+            $jankxCssDeps[] = $jankx;
             css(
                 $jankx->get_stylesheet(),
                 $stylesheetUri,
@@ -116,10 +117,12 @@ class Manager
         css(
             $stylesheetName,
             get_stylesheet_uri(),
-            $jankxCssDependences,
+            $jankxCssDeps,
             $this->theme->get('Version'),
         );
+
         $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName);
+        $this->mainJs         = apply_filters('jankx_main', '');
 
         /**
          * Added no post thumbnail CSS
@@ -145,6 +148,10 @@ class Manager
     protected function callDefaultAssets()
     {
         css($this->mainStylesheet);
+
+        if (!empty($this->mainJs)) {
+            js($this->mainJs);
+        }
     }
 
     public function registerStylesheets($dependences)
@@ -207,13 +214,40 @@ class Manager
 
     public function registerHeaderScripts()
     {
+        $jsScript = '<script>';
+        $allscripts = $this->bucket->getHeaderScripts();
+        foreach ($allscripts as $scripts) {
+            foreach ($scripts as $script) {
+                $jsScript .= $script;
+            }
+        }
+        $jsScript .= '</script>';
+        echo $jsScript;
     }
 
     public function initFooterScripts()
     {
+        $jsScript = '<script>';
+        $allscripts = $this->bucket->getInitFooterScripts();
+        foreach ($allscripts as $scripts) {
+            foreach ($scripts as $script) {
+                $jsScript .= $script;
+            }
+        }
+        $jsScript .= '</script>';
+        echo $jsScript;
     }
 
     public function executeFooterScript()
     {
+        $jsScript = '<script>';
+        $allscripts = $this->bucket->getInitFooterScripts();
+        foreach ($allscripts as $scripts) {
+            foreach ($scripts as $script) {
+                $jsScript .= $script;
+            }
+        }
+        $jsScript .= '</script>';
+        echo $jsScript;
     }
 }

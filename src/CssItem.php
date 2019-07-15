@@ -6,7 +6,7 @@ use Jankx\Asset\Abstracts\Item;
 class CssItem extends Item
 {
     protected $isRegistered = false;
-    public $media = true;
+    public $media = 'all';
 
     public function __construct($id, $url, $dependences, $version, $media = 'all')
     {
