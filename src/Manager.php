@@ -43,11 +43,9 @@ class Manager
 
     protected function initHooks()
     {
-        add_action('init', array($this, 'registerDefaultAssets'));
-        add_action('jankx_setup_environment', array($this, 'setupAssetManager'));
-
+		add_action('jankx_setup_environment', array($this, 'setupAssetManager'));
+        add_action('wp_enqueue_scripts', array($this, 'registerDefaultAssets'));
         add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
-
         add_action('wp_head', array($this, 'registerHeaderStyles'));
         add_action('wp_head', array($this, 'registerHeaderScripts'));
         add_action('wp_footer', array($this, 'initFooterScripts'), 5);
@@ -111,18 +109,18 @@ class Manager
                 $jankx->get_stylesheet(),
                 $stylesheetUri,
                 array(),
-                $jankx->get('Version'),
+                $jankx->get('Version')
             );
         }
         css(
             $stylesheetName,
             get_stylesheet_uri(),
             $jankxCssDeps,
-            $this->theme->get('Version'),
+            $this->theme->get('Version')
         );
 
         $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName);
-        $this->mainJs         = apply_filters('jankx_main', '');
+		$this->mainJs         = apply_filters('jankx_main_js', '');
 
         /**
          * Added no post thumbnail CSS
@@ -132,7 +130,7 @@ class Manager
                 '.no-thumbnail span {background-image: url("%s");}',
                 Jankx::defaultThumbnail()
             )
-        );
+		);
     }
 
     public function setupAssetManager($jankx)
