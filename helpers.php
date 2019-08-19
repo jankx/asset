@@ -7,7 +7,7 @@ function asset()
 function jankx_core_asset_url($path)
 {
     return sprintf(
-        '%s/assets/resources/%s',
+        '%s/asset/resources/%s',
         Jankx::vendorUrl(),
         $path
     );
