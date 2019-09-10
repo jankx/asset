@@ -111,8 +111,8 @@ class Manager
 
         if (is_child_theme()) {
             $jankx = $this->theme->getTemplate()->getInstance();
-            $stylesheetUri = sprintf('%s/style.css', get_template_directory());
-            $jankxCssDeps[] = $jankx;
+            $stylesheetUri = sprintf('%s/style.css', $jankx->get_template_directory());
+            $jankxCssDeps[] = $jankx->get_stylesheet();
             css(
                 $jankx->get_stylesheet(),
                 $stylesheetUri,
