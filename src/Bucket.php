@@ -88,6 +88,13 @@ class Bucket
         }
     }
 
+    public function getJavascript($handler)
+    {
+        if (isset($this->footerScripts[$handler])) {
+            return $this->footerScripts[$handler];
+        }
+    }
+
     public function getInitFooterScripts()
     {
         return $this->initFooterScripts;

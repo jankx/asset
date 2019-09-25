@@ -5,8 +5,9 @@ use Jankx\Asset\Abstracts\Item;
 
 class JsItem extends Item
 {
+
     protected $isRegistered = false;
-    public $isFooterScript = true;
+    public $isFooterScript  = true;
 
     public function __construct($id, $url, $dependences, $version, $isFooterScript = true)
     {

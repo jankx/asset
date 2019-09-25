@@ -9,8 +9,9 @@ class Manager
 {
     protected static $instance;
     protected $bucket;
-    protected $theme;
+    protected $mainJs;
     protected $mainStylesheet;
+    protected $theme;
 
     public static function instance()
     {
@@ -46,8 +47,11 @@ class Manager
         add_action('jankx_setup_environment', array($this, 'setupAssetManager'));
         add_action('wp_enqueue_scripts', array($this, 'registerDefaultAssets'));
         add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
+        add_action('wp_enqueue_scripts', array($this, 'callScripts'), 35);
+
         add_action('wp_head', array($this, 'registerHeaderStyles'));
         add_action('wp_head', array($this, 'registerHeaderScripts'));
+
         add_action('wp_footer', array($this, 'initFooterScripts'), 5);
         add_action('wp_footer', array($this, 'executeFooterScript'), 55);
     }
@@ -65,6 +69,10 @@ class Manager
             'tether' => array(
                 'url' => jankx_core_asset_url('vendor/tether/css/tether.css'),
                 'version' => '1.3.3',
+            ),
+            'glide' => array(
+                'url' => jankx_core_asset_url('vendor/glide/glide.core.css'),
+                'version' => '3.4.1',
             ),
         ));
         foreach ($defaultAssetCSS as $handler => $asset) {
@@ -88,6 +96,10 @@ class Manager
             'tether' => array(
                 'url' => jankx_core_asset_url('vendor/tether/js/tether.js'),
                 'version' => '1.3.3',
+            ),
+            'glide' => array(
+                'url' => jankx_core_asset_url('vendor/glide/glide.js'),
+                'version' => '3.4.1',
             ),
         ));
         foreach ($defaultAssetJs as $handler => $asset) {
@@ -179,20 +191,55 @@ class Manager
         }
     }
 
+    public function registerJavascripts($dependences)
+    {
+        foreach ($dependences as $handler => $jsItem) {
+            if (!$jsItem instanceof AssetItem) {
+                $jsItem = $this->bucket->getStylesheet($jsItem);
+
+                if (empty($jsItem)) {
+                    continue;
+                }
+            }
+
+            if ($jsItem->hasDependences()) {
+                $this->registerJavascripts($jsItem->getDependences());
+            }
+
+            $jsItem->register();
+        }
+    }
+
     public function registerScripts()
     {
         $this->callDefaultAssets();
-
         $this->registerStylesheets(
             $this->bucket->getStylesheets()
         );
+        $this->registerJavascripts(
+            $this->bucket->getFooterScipts()
+        );
+    }
 
+    /**
+     * Call all Javascripts and CSS are registered
+     */
+    public function callScripts()
+    {
         foreach ($this->bucket->getEnqueueCss() as $handler) {
             if ($this->bucket->isRegistered($handler, true)) {
-                $asset = $this->bucket->getStylesheet($handler);
-                $asset->call();
+                $css = $this->bucket->getStylesheet($handler);
+                $css->call();
             } else {
                 wp_enqueue_style($handler);
+            }
+        }
+        foreach ($this->bucket->getEnqueueJs() as $handler) {
+            if ($this->bucket->isRegistered($handler, false)) {
+                $js = $this->bucket->getJavascript($handler);
+                $js->call();
+            } else {
+                wp_enqueue_script($handler);
             }
         }
     }
