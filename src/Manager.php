@@ -193,7 +193,7 @@ class Manager
 
     public function registerJavascripts($dependences)
     {
-        foreach ($dependences as $handler => $jsItem) {
+        foreach ((array)$dependences as $handler => $jsItem) {
             if (!$jsItem instanceof AssetItem) {
                 $jsItem = $this->bucket->getStylesheet($jsItem);
 
