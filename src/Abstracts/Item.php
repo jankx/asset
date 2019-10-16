@@ -18,7 +18,7 @@ abstract class Item implements ItemInterface
         $this->dependences = $dependences;
         $this->version = $version;
 
-        if (count($dependences) > 0) {
+        if ($dependences) {
             $this->hasDependences = true;
         }
     }
