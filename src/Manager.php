@@ -139,7 +139,7 @@ class Manager
             $this->theme->get('Version')
         );
 
-        $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName);
+        $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
         $this->mainJs         = apply_filters('jankx_main_js', '');
 
         /**
