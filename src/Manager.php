@@ -174,7 +174,7 @@ class Manager
 
     public function registerStylesheets($dependences)
     {
-        foreach ($dependences as $handler => $cssItem) {
+        foreach ((array)$dependences as $handler => $cssItem) {
             if (!$cssItem instanceof AssetItem) {
                 $cssItem = $this->bucket->getStylesheet($cssItem);
 
