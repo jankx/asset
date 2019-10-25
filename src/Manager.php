@@ -282,10 +282,8 @@ class Manager
     {
         $jsScript = '<script>';
         $allscripts = $this->bucket->getInitFooterScripts();
-        foreach ($allscripts as $scripts) {
-            foreach ($scripts as $script) {
-                $jsScript .= $script;
-            }
+        foreach ($allscripts as $script) {
+            $jsScript .= $script;
         }
         $jsScript .= '</script>';
         echo $jsScript;
@@ -294,11 +292,9 @@ class Manager
     public function executeFooterScript()
     {
         $jsScript = '<script>';
-        $allscripts = $this->bucket->getInitFooterScripts();
-        foreach ($allscripts as $scripts) {
-            foreach ($scripts as $script) {
-                $jsScript .= $script;
-            }
+        $allscripts = $this->bucket->getExcuteFooterScripts();
+        foreach ($allscripts as $script) {
+            $jsScript .= $script;
         }
         $jsScript .= '</script>';
         echo $jsScript;
