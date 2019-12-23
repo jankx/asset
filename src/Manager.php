@@ -136,8 +136,9 @@ class Manager
             $stylesheetName,
             get_stylesheet_uri(),
             $jankxCssDeps,
-            $this->theme->get('Version')
+            $this->theme->getInstance()->get('Version')
         );
+
 
         $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
         $this->mainJs         = apply_filters('jankx_main_js', '');
