@@ -83,6 +83,10 @@ class Manager
                 'media' => true,
             ));
 
+            if (empty($asset['url'])) {
+                continue;
+            }
+
             css($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['media']);
         }
         /**
@@ -106,6 +110,7 @@ class Manager
                 'version' => '0.4.2',
             ),
         ));
+
         foreach ($defaultAssetJs as $handler => $asset) {
             $asset = wp_parse_args($asset, array(
                 'url' => '',
@@ -113,6 +118,10 @@ class Manager
                 'version' => null,
                 'footer' => true,
             ));
+
+            if (empty($asset['url'])) {
+                continue;
+            }
 
             js($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['footer']);
         }
