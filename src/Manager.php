@@ -101,6 +101,10 @@ class Manager
                 'url' => jankx_core_asset_url('vendor/glide/glide.js'),
                 'version' => '3.4.1',
             ),
+            'micromodal' => array(
+                'url' => jankx_core_asset_url('vendor/micromodal/micromodal.js'),
+                'version' => '0.4.2',
+            ),
         ));
         foreach ($defaultAssetJs as $handler => $asset) {
             $asset = wp_parse_args($asset, array(
