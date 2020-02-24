@@ -14,9 +14,6 @@
   "autoload": {
     "psr-4": {
       "Jankx\\Asset\\": "src/"
-    },
-    "files": [
-      "helpers.php"
-    ]
+    }
   }
 }
