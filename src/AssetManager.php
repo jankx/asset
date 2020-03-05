@@ -1,7 +1,6 @@
 <?php
 namespace Jankx\Asset;
 
-use Jankx;
 use Jankx\Theme;
 
 if (!class_exists(AssetManager::class)) {
@@ -44,7 +43,6 @@ if (!class_exists(AssetManager::class)) {
 
         protected function initHooks()
         {
-            add_action('jankx_setup_environment', array($this, 'setupAssetManager'));
             add_action('wp_enqueue_scripts', array($this, 'registerDefaultAssets'));
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
             add_action('wp_enqueue_scripts', array($this, 'callScripts'), 35);
@@ -155,26 +153,6 @@ if (!class_exists(AssetManager::class)) {
 
             $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
             $this->mainJs         = apply_filters('jankx_main_js', '');
-
-            /**
-             * Added no post thumbnail CSS
-             */
-            style(
-                sprintf(
-                    '.no-thumbnail span {background-image: url("%s");}',
-                    Jankx::defaultThumbnail()
-                )
-            );
-        }
-
-        public function setupAssetManager($jankx)
-        {
-            $jankx->defaultThumbnail = function () {
-                return apply_filters(
-                    'jankx_base64_default_thumbnail',
-                    sprintf('%s/assets/resources/img/noimage.svg', Jankx::vendorUrl())
-                );
-            };
         }
 
         protected function callDefaultAssets()
