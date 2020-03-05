@@ -5,8 +5,8 @@ use Jankx;
 use Jankx\Theme;
 use Jankx\Asset\Abstracts\Item as AssetItem;
 
-if (!class_exists(Manager::class)) {
-    class Manager
+if (!class_exists(AssetManager::class)) {
+    class AssetManager
     {
         protected static $instance;
         protected $bucket;
@@ -64,15 +64,15 @@ if (!class_exists(Manager::class)) {
              */
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
                 'fontawesome' => array(
-                    'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
+                    'url' => jankx_asset_url('lib/fontawesome/css/all.css'),
                     'version' => '5.9.0',
                 ),
                 'tether' => array(
-                    'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
+                    'url' => jankx_asset_url('lib/tether/css/tether.css'),
                     'version' => '1.3.3',
                 ),
                 'glide' => array(
-                    'url' => jankx_core_asset_url('lib/glide/glide.core.css'),
+                    'url' => jankx_asset_url('lib/glide/glide.core.css'),
                     'version' => '3.4.1',
                 ),
             ));
@@ -95,19 +95,19 @@ if (!class_exists(Manager::class)) {
              */
             $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
                 'modernizr' => array(
-                    'url' => jankx_core_asset_url('lib/modernizr-3.7.1.min.js'),
+                    'url' => jankx_asset_url('lib/modernizr-3.7.1.min.js'),
                     'version' => '3.7.1',
                 ),
                 'tether' => array(
-                    'url' => jankx_core_asset_url('lib/tether/js/tether.js'),
+                    'url' => jankx_asset_url('lib/tether/js/tether.js'),
                     'version' => '1.3.3',
                 ),
                 'glide' => array(
-                    'url' => jankx_core_asset_url('lib/glide/glide.js'),
+                    'url' => jankx_asset_url('lib/glide/glide.js'),
                     'version' => '3.4.1',
                 ),
                 'micromodal' => array(
-                    'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
+                    'url' => jankx_asset_url('lib/micromodal/micromodal.js'),
                     'version' => '0.4.2',
                 ),
             ));
