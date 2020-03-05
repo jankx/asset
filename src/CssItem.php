@@ -1,9 +1,7 @@
 <?php
 namespace Jankx\Asset;
 
-use Jankx\Asset\Abstracts\Item;
-
-class CssItem extends Item
+class CssItem extends AssetItem
 {
 
     protected $isRegistered = false;

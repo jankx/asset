@@ -3,7 +3,6 @@ namespace Jankx\Asset;
 
 use Jankx;
 use Jankx\Theme;
-use Jankx\Asset\Abstracts\Item as AssetItem;
 
 if (!class_exists(AssetManager::class)) {
     class AssetManager

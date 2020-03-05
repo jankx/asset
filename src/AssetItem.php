@@ -1,9 +1,7 @@
 <?php
-namespace Jankx\Asset\Abstracts;
+namespace Jankx\Asset;
 
-use Jankx\Asset\Interfaces\ItemInterface;
-
-abstract class Item implements ItemInterface
+abstract class AssetItem implements AssetInterface
 {
     protected $hasDependences = false;
     public $dependences = [];
