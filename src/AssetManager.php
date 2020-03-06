@@ -1,8 +1,6 @@
 <?php
 namespace Jankx\Asset;
 
-use Jankx\Theme;
-
 if (!class_exists(AssetManager::class)) {
     class AssetManager
     {
@@ -10,7 +8,6 @@ if (!class_exists(AssetManager::class)) {
         protected $bucket;
         protected $mainJs;
         protected $mainStylesheet;
-        protected $theme;
 
         public static function instance()
         {
@@ -22,10 +19,14 @@ if (!class_exists(AssetManager::class)) {
 
         public function __construct()
         {
-            $this->theme = Theme::instance();
-
+            $this->loadHelpers();
             $this->createBucket();
             $this->initHooks();
+        }
+
+        public function loadHelpers()
+        {
+            require_once realpath(dirname(__FILE__) . '/../helpers.php');
         }
 
         protected function createBucket()
@@ -61,15 +62,15 @@ if (!class_exists(AssetManager::class)) {
              */
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
                 'fontawesome' => array(
-                    'url' => jankx_asset_url('lib/fontawesome/css/all.css'),
+                    'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
                     'version' => '5.9.0',
                 ),
                 'tether' => array(
-                    'url' => jankx_asset_url('lib/tether/css/tether.css'),
+                    'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
                     'version' => '1.3.3',
                 ),
                 'glide' => array(
-                    'url' => jankx_asset_url('lib/glide/glide.core.css'),
+                    'url' => jankx_core_asset_url('lib/glide/glide.core.css'),
                     'version' => '3.4.1',
                 ),
             ));
@@ -92,19 +93,19 @@ if (!class_exists(AssetManager::class)) {
              */
             $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
                 'modernizr' => array(
-                    'url' => jankx_asset_url('lib/modernizr-3.7.1.min.js'),
+                    'url' => jankx_core_asset_url('lib/modernizr-3.7.1.min.js'),
                     'version' => '3.7.1',
                 ),
                 'tether' => array(
-                    'url' => jankx_asset_url('lib/tether/js/tether.js'),
+                    'url' => jankx_core_asset_url('lib/tether/js/tether.js'),
                     'version' => '1.3.3',
                 ),
                 'glide' => array(
-                    'url' => jankx_asset_url('lib/glide/glide.js'),
+                    'url' => jankx_core_asset_url('lib/glide/glide.js'),
                     'version' => '3.4.1',
                 ),
                 'micromodal' => array(
-                    'url' => jankx_asset_url('lib/micromodal/micromodal.js'),
+                    'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
                     'version' => '0.4.2',
                 ),
             ));
@@ -130,24 +131,23 @@ if (!class_exists(AssetManager::class)) {
             unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
 
             $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['fontawesome']);
-            $stylesheetName = $this->theme->getInstance()->get_stylesheet();
+            $stylesheetName = 'jankx';
 
             if (is_child_theme()) {
-                $jankx = $this->theme->getTemplate()->getInstance();
-                $stylesheetUri = sprintf('%s/style.css', $jankx->get_template_directory_uri());
-                $jankxCssDeps[] = $jankx->get_stylesheet();
+                $stylesheetUri = sprintf('%s/style.css', get_template_directory_uri());
+                $jankxCssDeps[] = 'jankx';
                 css(
-                    $jankx->get_stylesheet(),
+                    'child',
                     $stylesheetUri,
                     array(),
-                    $jankx->get('Version')
+                    '1.0.0'
                 );
             }
             css(
                 $stylesheetName,
                 get_stylesheet_uri(),
                 $jankxCssDeps,
-                $this->theme->getInstance()->get('Version')
+                '1.0.0'
             );
 
 

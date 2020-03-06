@@ -1,7 +1,7 @@
 <?php
-namespace Jankx\Asset\Interfaces;
+namespace Jankx\Asset;
 
-interface ItemInterface
+interface AssetInterface
 {
     public function call();
 
