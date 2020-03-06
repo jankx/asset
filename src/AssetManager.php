@@ -8,6 +8,7 @@ if (!class_exists(AssetManager::class)) {
         protected $bucket;
         protected $mainJs;
         protected $mainStylesheet;
+        protected $theme;
 
         public static function instance()
         {
@@ -19,6 +20,8 @@ if (!class_exists(AssetManager::class)) {
 
         public function __construct()
         {
+            $this->theme = wp_get_theme();
+
             $this->loadHelpers();
             $this->createBucket();
             $this->initHooks();
@@ -131,11 +134,11 @@ if (!class_exists(AssetManager::class)) {
             unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
 
             $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['fontawesome']);
-            $stylesheetName = 'jankx';
+            $stylesheetName = $this->theme->stylesheet;
 
             if (is_child_theme()) {
                 $stylesheetUri = sprintf('%s/style.css', get_template_directory_uri());
-                $jankxCssDeps[] = 'jankx';
+                $jankxCssDeps[] = $this->theme->template;
                 css(
                     'child',
                     $stylesheetUri,
