@@ -134,25 +134,25 @@ if (!class_exists(AssetManager::class)) {
             unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
 
             $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['fontawesome']);
-            $stylesheetName = $this->theme->stylesheet;
+            $stylesheetName = $this->theme->get_stylesheet();
 
             if (is_child_theme()) {
                 $stylesheetUri = sprintf('%s/style.css', get_template_directory_uri());
-                $jankxCssDeps[] = $this->theme->template;
+                $jankxTemplate = wp_get_theme($this->theme->get_template());
+                $jankxCssDeps[] = $jankxTemplate->get_stylesheet();
                 css(
                     'child',
                     $stylesheetUri,
                     array(),
-                    '1.0.0'
+                    $jankxTemplate->version
                 );
             }
             css(
                 $stylesheetName,
                 get_stylesheet_uri(),
                 $jankxCssDeps,
-                '1.0.0'
+                $this->theme->version
             );
-
 
             $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
             $this->mainJs         = apply_filters('jankx_main_js', '');
