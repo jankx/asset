@@ -21,7 +21,6 @@ if (!class_exists(AssetManager::class)) {
         public function __construct()
         {
             $this->theme = wp_get_theme();
-
             $this->loadHelpers();
             $this->createBucket();
             $this->initHooks();
@@ -141,12 +140,13 @@ if (!class_exists(AssetManager::class)) {
                 $jankxTemplate = wp_get_theme($this->theme->get_template());
                 $jankxCssDeps[] = $jankxTemplate->get_stylesheet();
                 css(
-                    'child',
+                    $jankxTemplate->get_stylesheet(),
                     $stylesheetUri,
                     array(),
                     $jankxTemplate->version
                 );
             }
+
             css(
                 $stylesheetName,
                 get_stylesheet_uri(),
@@ -221,7 +221,8 @@ if (!class_exists(AssetManager::class)) {
          */
         public function callScripts()
         {
-            foreach ($this->bucket->getEnqueueCss() as $handler) {
+            $handlers = $this->bucket->getEnqueueCss();
+            foreach ($handlers as $handler) {
                 if ($this->bucket->isRegistered($handler, true)) {
                     $css = $this->bucket->getStylesheet($handler);
                     $css->call();
