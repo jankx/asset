@@ -75,6 +75,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/glide/glide.core.css'),
                     'version' => '3.4.1',
                 ),
+                'bulma' => array(
+                    'url' => jankx_core_asset_url('lib/bulma/css/bulma.css'),
+                    'version' => '0.8.0',
+                ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(

@@ -7,8 +7,8 @@ function asset()
 function jankx_core_asset_url($path)
 {
     return sprintf(
-        '%s/asset/resources/%s',
-        dirname(__FILE__),
+        '%s/resources/%s',
+        str_replace(ABSPATH, site_url('/'), dirname(__FILE__)),
         $path
     );
 }
@@ -70,4 +70,7 @@ function is_registered_asset($handler, $isStylesheet = true)
         $handler,
         $isStylesheet
     );
+}
+
+function call_js($handler) {
 }
