@@ -46,7 +46,8 @@ if (!class_exists(AssetManager::class)) {
 
         protected function initHooks()
         {
-            add_action('wp_enqueue_scripts', array($this, 'registerDefaultAssets'));
+            add_action('init', array($this, 'registerDefaultAssets'), 5);
+
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
             add_action('wp_enqueue_scripts', array($this, 'callScripts'), 35);
 
