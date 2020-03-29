@@ -73,11 +73,20 @@ if (!class_exists(AssetManager::class)) {
                     'version' => '1.3.3',
                 ),
                 'glide' => array(
-                    'url' => jankx_core_asset_url('lib/glide/glide.core.css'),
+                    'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
                     'version' => '3.4.1',
+                ),
+                'glide-theme' => array(
+                    'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
+                    'version' => '3.4.1',
+                    'dependences' => ['glide']
                 ),
                 'bulma' => array(
                     'url' => jankx_core_asset_url('lib/bulma/css/bulma.css'),
+                    'version' => '0.8.0',
+                ),
+                'owl-carousel2' => array(
+                    'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.carousel.css'),
                     'version' => '0.8.0',
                 ),
             ));
@@ -114,6 +123,11 @@ if (!class_exists(AssetManager::class)) {
                 'micromodal' => array(
                     'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
                     'version' => '0.4.2',
+                ),
+                'owl-carousel2' => array(
+                    'url' => jankx_core_asset_url('lib/OwlCarousel2/owl.carousel.js'),
+                    'version' => '0.8.0',
+                    'dependences' => ['jquery']
                 ),
             ));
 
