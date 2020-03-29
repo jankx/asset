@@ -87,7 +87,12 @@ if (!class_exists(AssetManager::class)) {
                 ),
                 'owl-carousel2' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.carousel.css'),
-                    'version' => '0.8.0',
+                    'version' => '2.3.4',
+                ),
+                'owl-carousel2-default' => array(
+                    'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.theme.default.css'),
+                    'version' => '2.3.4',
+                    'dependences' => ['owl-carousel2']
                 ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
@@ -95,7 +100,7 @@ if (!class_exists(AssetManager::class)) {
                     'url' => '',
                     'dependences' => [],
                     'version' => null,
-                    'media' => true,
+                    'media' => 'all',
                 ));
 
                 if (empty($asset['url'])) {
@@ -126,7 +131,7 @@ if (!class_exists(AssetManager::class)) {
                 ),
                 'owl-carousel2' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/owl.carousel.js'),
-                    'version' => '0.8.0',
+                    'version' => '2.3.4',
                     'dependences' => ['jquery']
                 ),
             ));
