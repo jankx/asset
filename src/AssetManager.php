@@ -94,6 +94,11 @@ if (!class_exists(AssetManager::class)) {
                     'version' => '2.3.4',
                     'dependences' => ['owl-carousel2']
                 ),
+                'owl-carousel2-green' => array(
+                    'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.theme.green.css'),
+                    'version' => '2.3.4',
+                    'dependences' => ['owl-carousel2']
+                ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
