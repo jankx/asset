@@ -130,6 +130,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/glide/glide.js'),
                     'version' => '3.4.1',
                 ),
+                'slideout' => array(
+                    'url' => jankx_core_asset_url('lib/slideout-1.0.1/slideout.js'),
+                    'version' => '1.0.1',
+                ),
                 'micromodal' => array(
                     'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
                     'version' => '0.4.2',
