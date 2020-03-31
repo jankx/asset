@@ -68,6 +68,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
                     'version' => '5.9.0',
                 ),
+                'material-icons' => array(
+                    'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
+                    'version' => '5.0.45',
+                ),
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
                     'version' => '1.3.3',
