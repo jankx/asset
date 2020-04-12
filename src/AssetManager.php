@@ -48,6 +48,8 @@ if (!class_exists(AssetManager::class)) {
         {
             add_action('init', array($this, 'registerDefaultAssets'), 5);
 
+            add_action('wp_enqueue_scripts', array($this, 'registerThemeAssets'));
+
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
             add_action('wp_enqueue_scripts', array($this, 'callScripts'), 35);
 
@@ -168,7 +170,19 @@ if (!class_exists(AssetManager::class)) {
              * Unset the life default assets after register to Jankx Asset Manager
              */
             unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
+        }
 
+        protected function callDefaultAssets()
+        {
+            css($this->mainStylesheet);
+
+            if (!empty($this->mainJs)) {
+                js($this->mainJs);
+            }
+        }
+
+        public function registerThemeAssets()
+        {
             $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['fontawesome']);
             $stylesheetName = $this->theme->get_stylesheet();
 
@@ -193,15 +207,6 @@ if (!class_exists(AssetManager::class)) {
 
             $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
             $this->mainJs         = apply_filters('jankx_main_js', '');
-        }
-
-        protected function callDefaultAssets()
-        {
-            css($this->mainStylesheet);
-
-            if (!empty($this->mainJs)) {
-                js($this->mainJs);
-            }
         }
 
         public function registerStylesheets($dependences)
