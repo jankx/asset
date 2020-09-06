@@ -1,0 +1,24 @@
+{
+  "name": "@jankx/asset",
+  "version": "1.0.0",
+  "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax.",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jankx/asset.git"
+  },
+  "keywords": [
+    "assets",
+    "css",
+    "js"
+  ],
+  "author": "Jankx Team <puleeno@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jankx/asset/issues"
+  },
+  "homepage": "https://github.com/jankx/asset#readme"
+}
