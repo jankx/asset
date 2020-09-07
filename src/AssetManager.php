@@ -72,7 +72,7 @@ if (!class_exists(AssetManager::class)) {
                 ),
                 'material-icons' => array(
                     'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
-                    'version' => '5.0.45',
+                    'version' => '5.5.55',
                 ),
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
