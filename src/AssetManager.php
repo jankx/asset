@@ -66,6 +66,10 @@ if (!class_exists(AssetManager::class)) {
              * Register default CSS resource to Jankx Asset Manager
              */
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
+                'jankx-base' => array(
+                    'url' => jankx_core_asset_url('css/base.css'),
+                    'version' => '0.0.6',
+                ),
                 'fontawesome' => array(
                     'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
                     'version' => '5.9.0',
@@ -183,7 +187,7 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerThemeAssets()
         {
-            $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['fontawesome']);
+            $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['jankx-base', 'fontawesome']);
             $stylesheetName = $this->theme->get_stylesheet();
 
             if (is_child_theme()) {
