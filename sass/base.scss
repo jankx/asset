@@ -4,7 +4,11 @@
     }
 }
 
-.jankx-lfw #jankx-main-content {
+#jankx-main-content {
+    min-height: 100px;
+}
+
+.jankx-fw #jankx-main-content {
     width: 100%;
 }
 
@@ -12,7 +16,7 @@
     #jankx-main-content {
         width: 100%;
     }
-    .jankx-lscs,.jankx-lcss, .jankx-lssc {
+    .jankx-scs,.jankx-css, .jankx-ssc {
         #jankx-primary-sidebar {
             width: 50%;
         }
@@ -20,7 +24,7 @@
             width: 50%;
         }
     }
-    .jankx-lsc,.jankx-lcs {
+    .jankx-sc,.jankx-cs {
         #jankx-primary-sidebar, #jankx-secondary-sidebar {
             width: 100%;
         }
@@ -28,7 +32,7 @@
 }
 
 @media(min-width: 992px) {
-    .jankx-lscs,.jankx-lcss, .jankx-lssc {
+    .jankx-scs,.jankx-css, .jankx-ssc {
         #jankx-main-content {
             width: 50%;
         }
@@ -39,7 +43,7 @@
             width: 25%;
         }
     }
-    .jankx-lsc,.jankx-lcs {
+    .jankx-sc,.jankx-cs {
         #jankx-main-content {
             width: 70%;
         }
@@ -50,7 +54,7 @@
 }
 
 @media (min-width: 1200px) {
-    .jankx-lscs,.jankx-lcss, .jankx-lssc {
+    .jankx-scs,.jankx-css, .jankx-ssc {
         #jankx-main-content {
             width: 60%;
         }
@@ -61,7 +65,7 @@
             width: 20%;
         }
     }
-    .jankx-lsc,.jankx-lcs {
+    .jankx-sc,.jankx-cs {
         #jankx-main-content {
             width: 72.5%;
         }

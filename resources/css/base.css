@@ -2,7 +2,11 @@
   float: left;
 }
 
-.jankx-lfw #jankx-main-content {
+#jankx-main-content {
+  min-height: 100px;
+}
+
+.jankx-fw #jankx-main-content {
   width: 100%;
 }
 
@@ -11,50 +15,50 @@
     width: 100%;
   }
 
-  .jankx-lscs #jankx-primary-sidebar, .jankx-lcss #jankx-primary-sidebar, .jankx-lssc #jankx-primary-sidebar {
+  .jankx-scs #jankx-primary-sidebar, .jankx-css #jankx-primary-sidebar, .jankx-ssc #jankx-primary-sidebar {
     width: 50%;
   }
-  .jankx-lscs #jankx-secondary-sidebar, .jankx-lcss #jankx-secondary-sidebar, .jankx-lssc #jankx-secondary-sidebar {
+  .jankx-scs #jankx-secondary-sidebar, .jankx-css #jankx-secondary-sidebar, .jankx-ssc #jankx-secondary-sidebar {
     width: 50%;
   }
 
-  .jankx-lsc #jankx-primary-sidebar, .jankx-lsc #jankx-secondary-sidebar, .jankx-lcs #jankx-primary-sidebar, .jankx-lcs #jankx-secondary-sidebar {
+  .jankx-sc #jankx-primary-sidebar, .jankx-sc #jankx-secondary-sidebar, .jankx-cs #jankx-primary-sidebar, .jankx-cs #jankx-secondary-sidebar {
     width: 100%;
   }
 }
 @media (min-width: 992px) {
-  .jankx-lscs #jankx-main-content, .jankx-lcss #jankx-main-content, .jankx-lssc #jankx-main-content {
+  .jankx-scs #jankx-main-content, .jankx-css #jankx-main-content, .jankx-ssc #jankx-main-content {
     width: 50%;
   }
-  .jankx-lscs #jankx-primary-sidebar, .jankx-lcss #jankx-primary-sidebar, .jankx-lssc #jankx-primary-sidebar {
+  .jankx-scs #jankx-primary-sidebar, .jankx-css #jankx-primary-sidebar, .jankx-ssc #jankx-primary-sidebar {
     width: 25%;
   }
-  .jankx-lscs #jankx-secondary-sidebar, .jankx-lcss #jankx-secondary-sidebar, .jankx-lssc #jankx-secondary-sidebar {
+  .jankx-scs #jankx-secondary-sidebar, .jankx-css #jankx-secondary-sidebar, .jankx-ssc #jankx-secondary-sidebar {
     width: 25%;
   }
 
-  .jankx-lsc #jankx-main-content, .jankx-lcs #jankx-main-content {
+  .jankx-sc #jankx-main-content, .jankx-cs #jankx-main-content {
     width: 70%;
   }
-  .jankx-lsc #jankx-primary-sidebar, .jankx-lsc #jankx-secondary-sidebar, .jankx-lcs #jankx-primary-sidebar, .jankx-lcs #jankx-secondary-sidebar {
+  .jankx-sc #jankx-primary-sidebar, .jankx-sc #jankx-secondary-sidebar, .jankx-cs #jankx-primary-sidebar, .jankx-cs #jankx-secondary-sidebar {
     width: 30%;
   }
 }
 @media (min-width: 1200px) {
-  .jankx-lscs #jankx-main-content, .jankx-lcss #jankx-main-content, .jankx-lssc #jankx-main-content {
+  .jankx-scs #jankx-main-content, .jankx-css #jankx-main-content, .jankx-ssc #jankx-main-content {
     width: 60%;
   }
-  .jankx-lscs #jankx-primary-sidebar, .jankx-lcss #jankx-primary-sidebar, .jankx-lssc #jankx-primary-sidebar {
+  .jankx-scs #jankx-primary-sidebar, .jankx-css #jankx-primary-sidebar, .jankx-ssc #jankx-primary-sidebar {
     width: 20%;
   }
-  .jankx-lscs #jankx-secondary-sidebar, .jankx-lcss #jankx-secondary-sidebar, .jankx-lssc #jankx-secondary-sidebar {
+  .jankx-scs #jankx-secondary-sidebar, .jankx-css #jankx-secondary-sidebar, .jankx-ssc #jankx-secondary-sidebar {
     width: 20%;
   }
 
-  .jankx-lsc #jankx-main-content, .jankx-lcs #jankx-main-content {
+  .jankx-sc #jankx-main-content, .jankx-cs #jankx-main-content {
     width: 72.5%;
   }
-  .jankx-lsc #jankx-primary-sidebar, .jankx-lsc #jankx-secondary-sidebar, .jankx-lcs #jankx-primary-sidebar, .jankx-lcs #jankx-secondary-sidebar {
+  .jankx-sc #jankx-primary-sidebar, .jankx-sc #jankx-secondary-sidebar, .jankx-cs #jankx-primary-sidebar, .jankx-cs #jankx-secondary-sidebar {
     width: 27.5%;
   }
 }

@@ -68,7 +68,7 @@ if (!class_exists(AssetManager::class)) {
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
                 'jankx-base' => array(
                     'url' => jankx_core_asset_url('css/base.css'),
-                    'version' => '0.0.6',
+                    'version' => '0.0.7',
                 ),
                 'fontawesome' => array(
                     'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
