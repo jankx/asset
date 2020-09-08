@@ -8,6 +8,7 @@
 
 .jankx-fw #jankx-main-content {
   width: 100%;
+  float: none !important;
 }
 
 @media (min-width: 767px) {
