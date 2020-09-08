@@ -21,7 +21,7 @@ module.exports = {
             loader: "file-loader",
             options: {
               outputPath: "css/",
-              name: "[name].css",
+              name: (process.env.NODE_ENV === 'production' ? "[name].min.css" : "[name].css")
             },
           },
           "sass-loader",
