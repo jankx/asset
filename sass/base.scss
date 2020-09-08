@@ -1,5 +1,5 @@
 .main-content-sidebar {
-    #jankx-main-content, #jankx-primary-sidebar, #jankx-secondary-sidebar {
+    #jankx-main-content, .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
         float: left;
     }
 }
@@ -17,6 +17,9 @@
         width: 100%;
     }
     .jankx-scs,.jankx-css, .jankx-ssc {
+        .sidebar {
+            width: 50%;
+        }
         #jankx-primary-sidebar {
             width: 50%;
         }
@@ -36,6 +39,9 @@
         #jankx-main-content {
             width: 50%;
         }
+        .sidebar{
+            width: 25%;
+        }
         #jankx-primary-sidebar {
             width: 25%;
         }
@@ -47,7 +53,7 @@
         #jankx-main-content {
             width: 70%;
         }
-        #jankx-primary-sidebar, #jankx-secondary-sidebar {
+        .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
             width: 30%;
         }
     }
@@ -57,6 +63,9 @@
     .jankx-scs,.jankx-css, .jankx-ssc {
         #jankx-main-content {
             width: 60%;
+        }
+        .sidebar{
+            width: 20%;
         }
         #jankx-primary-sidebar {
             width: 20%;
@@ -69,11 +78,17 @@
         #jankx-main-content {
             width: 72.5%;
         }
-        #jankx-primary-sidebar, #jankx-secondary-sidebar {
+        .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
             width: 27.5%;
         }
     }
 }
 
 @media (min-width: 1201px) {
+}
+
+@media (max-width: 768px) {
+    #jankx-main-content, .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
+        float: none;
+    }
 }
