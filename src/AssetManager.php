@@ -68,7 +68,7 @@ if (!class_exists(AssetManager::class)) {
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
                 'jankx-base' => array(
                     'url' => jankx_core_asset_url('css/base.css'),
-                    'version' => '0.0.12',
+                    'version' => '0.0.15',
                 ),
                 'fontawesome' => array(
                     'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
@@ -297,8 +297,8 @@ if (!class_exists(AssetManager::class)) {
                     }
                 } else {
                     foreach ($styles as $style) {
-                        $css .= sprintf('@media %1%s {
-                            %2%ss
+                        $css .= sprintf('@media %1$s {
+                            %2$s
                         }', $media, $style);
                     }
                 }

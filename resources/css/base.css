@@ -77,3 +77,6 @@
     float: none;
   }
 }
+.footer-widgets-area .jankx-footer-widget {
+  float: left;
+}
