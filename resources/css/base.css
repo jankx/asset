@@ -2,7 +2,7 @@
   float: left;
 }
 
-#jankx-main-content {
+#jankx-main-content, .sidebar {
   min-height: 100px;
 }
 
