@@ -1,4 +1,4 @@
-export-ignore sass
-export-ignore webpack.config.js
-export-ignore package.json
-export-ignore package-lock.json
+/sass export-ignore
+/webpack.config.js export-ignore
+/package.json export-ignore
+/package-lock.json export-ignore
