@@ -203,7 +203,7 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerThemeAssets()
         {
-            $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['jankx-base', 'fontawesome']);
+            $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['jankx-base', 'material-icons']);
             $stylesheetName = $this->theme->get_stylesheet();
 
             if (is_child_theme()) {
