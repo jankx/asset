@@ -124,6 +124,10 @@ blockquote.right {
   float: right;
 }
 
+.clearfix, .jankx-clearfix {
+  clear: both;
+}
+
 .main-content-sidebar #jankx-main-content, .main-content-sidebar .sidebar, .main-content-sidebar #jankx-primary-sidebar, .main-content-sidebar #jankx-secondary-sidebar {
   float: left;
 }
