@@ -124,6 +124,7 @@ if (!class_exists(AssetManager::class)) {
 
                 css($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['media']);
             }
+
             /**
              * Register default JS resources to Jankx Asset Manager
              */
@@ -146,7 +147,7 @@ if (!class_exists(AssetManager::class)) {
                 ),
                 'micromodal' => array(
                     'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
-                    'version' => '0.4.2',
+                    'version' => '0.4.6',
                 ),
                 'owl-carousel2' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/owl.carousel.js'),
