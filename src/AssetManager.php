@@ -80,7 +80,17 @@ if (!class_exists(AssetManager::class)) {
                 ),
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
-                    'version' => '1.3.3',
+                    'version' => '1.4.7',
+                ),
+                'tether-drop' => array(
+                    'url' => jankx_core_asset_url('lib/drop/css/drop.css'),
+                    'version' => '1.2.2',
+                    'dependences' => array('tether')
+                ),
+                'tether-drop' => array(
+                    'url' => jankx_core_asset_url('lib/drop/css/drop-theme-basic.css'),
+                    'version' => '1.2.2',
+                    'dependences' => array('tether')
                 ),
                 'glide' => array(
                     'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
@@ -89,7 +99,7 @@ if (!class_exists(AssetManager::class)) {
                 'glide-theme' => array(
                     'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
                     'version' => '3.4.1',
-                    'dependences' => ['glide']
+                    'dependences' => array('glide')
                 ),
                 'bulma' => array(
                     'url' => jankx_core_asset_url('lib/bulma/css/bulma.css'),
@@ -102,18 +112,18 @@ if (!class_exists(AssetManager::class)) {
                 'owl-carousel2-default' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.theme.default.css'),
                     'version' => '2.3.4',
-                    'dependences' => ['owl-carousel2']
+                    'dependences' => array('owl-carousel2')
                 ),
                 'owl-carousel2-green' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.theme.green.css'),
                     'version' => '2.3.4',
-                    'dependences' => ['owl-carousel2']
+                    'dependences' => array('owl-carousel2')
                 ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
                     'url' => '',
-                    'dependences' => [],
+                    'dependences' => array(),
                     'version' => null,
                     'media' => 'all',
                 ));
@@ -135,7 +145,12 @@ if (!class_exists(AssetManager::class)) {
                 ),
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/js/tether.js'),
-                    'version' => '1.3.3',
+                    'version' => '1.4.7',
+                ),
+                'tether-drop' => array(
+                    'url' => jankx_core_asset_url('lib/drop/js/drop.js'),
+                    'version' => '1.2.2',
+                    'dependences' => array('tether')
                 ),
                 'glide' => array(
                     'url' => jankx_core_asset_url('lib/glide/glide.js'),
@@ -152,14 +167,14 @@ if (!class_exists(AssetManager::class)) {
                 'owl-carousel2' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/owl.carousel.js'),
                     'version' => '2.3.4',
-                    'dependences' => ['jquery']
+                    'dependences' => array('jquery')
                 ),
             ));
 
             foreach ($defaultAssetJs as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
                     'url' => '',
-                    'dependences' => [],
+                    'dependences' => array(),
                     'version' => null,
                     'footer' => true,
                 ));
