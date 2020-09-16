@@ -82,6 +82,25 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
                     'version' => '1.4.7',
                 ),
+                'superfish' => array(
+                    'url' => jankx_core_asset_url('lib/supperfish/css/superfish.css'),
+                    'version' => '1.7.10',
+                ),
+                'superfish-mega' => array(
+                    'url' => jankx_core_asset_url('lib/supperfish/css/megafish.css'),
+                    'version' => '1.7.10',
+                    'dependences' => array('superfish'),
+                ),
+                'superfish-navbar' => array(
+                    'url' => jankx_core_asset_url('lib/supperfish/css/superfish-navbar.css'),
+                    'version' => '1.7.10',
+                    'dependences' => array('superfish'),
+                ),
+                'superfish-vertical' => array(
+                    'url' => jankx_core_asset_url('lib/supperfish/css/superfish-vertical.css'),
+                    'version' => '1.7.10',
+                    'dependences' => array('superfish'),
+                ),
                 'tether-drop' => array(
                     'url' => jankx_core_asset_url('lib/drop/css/drop.css'),
                     'version' => '1.2.2',
@@ -151,6 +170,16 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/drop/js/drop.js'),
                     'version' => '1.2.2',
                     'dependences' => array('tether')
+                ),
+                'superfish' => array(
+                    'url' => jankx_core_asset_url('lib/supperfish/js/superfish.js'),
+                    'version' => '1.7.10',
+                    'dependences' => array('jquery', 'hoverIntent'),
+                ),
+                'superfish-supersubs' => array(
+                    'url' => jankx_core_asset_url('lib/supperfish/js/superfish.js'),
+                    'version' => '1.7.10',
+                    'dependences' => array('superfish'),
                 ),
                 'glide' => array(
                     'url' => jankx_core_asset_url('lib/glide/glide.js'),
