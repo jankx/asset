@@ -132,6 +132,11 @@ blockquote.right {
   display: none;
 }
 
+.jankx-footer-widgets-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .main-content-sidebar #jankx-main-content, .main-content-sidebar .sidebar, .main-content-sidebar #jankx-primary-sidebar, .main-content-sidebar #jankx-secondary-sidebar {
   float: left;
 }
