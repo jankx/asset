@@ -132,6 +132,13 @@ blockquote.right {
   display: none;
 }
 
+.jankx-logo a {
+  display: block;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 200px;
+}
+
 .jankx-footer-widgets-area {
   padding-top: 20px;
   padding-bottom: 20px;
