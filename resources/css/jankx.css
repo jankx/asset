@@ -124,6 +124,13 @@ blockquote.right {
   float: right;
 }
 
+.widget + .widget {
+  margin-top: 20px;
+}
+.widget .widget-title {
+  font-size: 125%;
+}
+
 .clearfix, .jankx-clearfix {
   clear: both;
 }
@@ -275,6 +282,10 @@ a {
     max-width: 768px;
   }
 }
+.widgets-area-inner ul li {
+  margin-top: 10px;
+}
+
 @media (min-width: 768px) {
   .widgets-area-inner {
     display: flex;

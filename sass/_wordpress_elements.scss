@@ -1,0 +1,8 @@
+.widget {
+    &+.widget {
+        margin-top: 20px;
+    }
+    .widget-title {
+        font-size: 125%;
+    }
+}
