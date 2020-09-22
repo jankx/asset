@@ -70,6 +70,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('css/base.css'),
                     'version' => '0.1.24',
                 ),
+                'fontawesome' => array(
+                    'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
+                    'version' => '5.9.0',
+                ),
                 'material-icons' => array(
                     'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
                     'version' => '5.5.55',
