@@ -1,8 +1,4 @@
-.main-content-sidebar {
-    #jankx-main-content, .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
-        float: left;
-    }
-}
+
 
 #jankx-site-footer {
     clear: both;
@@ -14,10 +10,13 @@
 
 .jankx-fw #jankx-main-content {
     width: 100%;
-    float: none !important;
 }
 
 @media(min-width: 767px) {
+    .main-content-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+    }
     #jankx-main-content {
         width: 100%;
     }
@@ -93,7 +92,5 @@
 }
 
 @media (max-width: 768px) {
-    #jankx-main-content, .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
-        float: none;
-    }
+
 }

@@ -6,6 +6,10 @@ small {
     font-size: 88%;
 }
 
+a {
+    text-decoration: none;
+}
+
 .jankx-loading {
     display: none;
 }
@@ -17,7 +21,7 @@ small {
             background-repeat: no-repeat;
             background-position: left center;
             height: 60px;
-            width: 200px;
+            width: 180px;
             text-indent: -9999px;
         }
     }

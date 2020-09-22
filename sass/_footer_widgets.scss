@@ -1,7 +1,6 @@
 @media(min-width: 768px) {
-    .footer-widgets-area {
-        .jankx-footer-widget {
-            float: left;
-        }
+    .widgets-area-inner {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
