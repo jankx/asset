@@ -158,8 +158,10 @@ a {
   padding: 5px 10px;
 }
 .jankx-ui.navigation .jankx-subtitle {
-  display: block;
   font-size: 88%;
+}
+.jankx-ui.navigation .jankx-subtitle.position-bottom, .jankx-ui.navigation .jankx-subtitleposition-top {
+  display: block;
 }
 
 .jankx-footer-widgets-area {
