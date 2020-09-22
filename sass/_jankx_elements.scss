@@ -38,6 +38,11 @@ a {
                 display: block;
                 padding: 5px 10px;
             }
+            &.small-text {
+                a {
+                    font-size: 88%;
+                }
+            }
         }
 
         .jankx-subtitle {

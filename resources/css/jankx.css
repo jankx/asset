@@ -157,6 +157,9 @@ a {
   display: block;
   padding: 5px 10px;
 }
+.jankx-ui.navigation li.small-text a {
+  font-size: 88%;
+}
 .jankx-ui.navigation .jankx-subtitle {
   font-size: 88%;
 }
