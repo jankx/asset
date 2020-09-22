@@ -163,7 +163,7 @@ a {
 .jankx-ui.navigation .jankx-subtitle {
   font-size: 88%;
 }
-.jankx-ui.navigation .jankx-subtitle.position-bottom, .jankx-ui.navigation .jankx-subtitleposition-top {
+.jankx-ui.navigation .jankx-subtitle.position-bottom, .jankx-ui.navigation .jankx-subtitle.position-top {
   display: block;
 }
 
