@@ -68,11 +68,7 @@ if (!class_exists(AssetManager::class)) {
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
                 'jankx-base' => array(
                     'url' => jankx_core_asset_url('css/base.css'),
-                    'version' => '0.1.3',
-                ),
-                'fontawesome' => array(
-                    'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
-                    'version' => '5.9.0',
+                    'version' => '0.1.24',
                 ),
                 'material-icons' => array(
                     'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
@@ -82,25 +78,6 @@ if (!class_exists(AssetManager::class)) {
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
                     'version' => '1.4.7',
-                ),
-                'superfish' => array(
-                    'url' => jankx_core_asset_url('lib/supperfish/css/superfish.css'),
-                    'version' => '1.7.10',
-                ),
-                'superfish-mega' => array(
-                    'url' => jankx_core_asset_url('lib/supperfish/css/megafish.css'),
-                    'version' => '1.7.10',
-                    'dependences' => array('superfish'),
-                ),
-                'superfish-navbar' => array(
-                    'url' => jankx_core_asset_url('lib/supperfish/css/superfish-navbar.css'),
-                    'version' => '1.7.10',
-                    'dependences' => array('superfish'),
-                ),
-                'superfish-vertical' => array(
-                    'url' => jankx_core_asset_url('lib/supperfish/css/superfish-vertical.css'),
-                    'version' => '1.7.10',
-                    'dependences' => array('superfish'),
                 ),
                 'tether-drop' => array(
                     'url' => jankx_core_asset_url('lib/drop/css/drop.css'),
@@ -120,10 +97,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
                     'version' => '3.4.1',
                     'dependences' => array('glide')
-                ),
-                'bulma' => array(
-                    'url' => jankx_core_asset_url('lib/bulma/css/bulma.css'),
-                    'version' => '0.8.0',
                 ),
                 'owl-carousel2' => array(
                     'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.carousel.css'),
@@ -171,16 +144,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/drop/js/drop.js'),
                     'version' => '1.2.2',
                     'dependences' => array('tether')
-                ),
-                'superfish' => array(
-                    'url' => jankx_core_asset_url('lib/supperfish/js/superfish.js'),
-                    'version' => '1.7.10',
-                    'dependences' => array('jquery', 'hoverIntent'),
-                ),
-                'superfish-supersubs' => array(
-                    'url' => jankx_core_asset_url('lib/supperfish/js/superfish.js'),
-                    'version' => '1.7.10',
-                    'dependences' => array('superfish'),
                 ),
                 'glide' => array(
                     'url' => jankx_core_asset_url('lib/glide/glide.js'),

@@ -132,16 +132,32 @@ blockquote.right {
   display: none;
 }
 
-.jankx-logo a {
+.jankx-logo.image a {
   display: block;
   background-repeat: no-repeat;
-  height: 100px;
+  background-position: left center;
+  height: 60px;
   width: 200px;
+  text-indent: -9999px;
+}
+
+.jankx-ui.navigation ul.menu {
+  display: flex;
+  align-items: center;
+}
+.jankx-ui.navigation li a {
+  display: block;
+  padding: 5px 10px;
 }
 
 .jankx-footer-widgets-area {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.jankx-copyright {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .main-content-sidebar #jankx-main-content, .main-content-sidebar .sidebar, .main-content-sidebar #jankx-primary-sidebar, .main-content-sidebar #jankx-secondary-sidebar {
