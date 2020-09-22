@@ -1,7 +1,9 @@
 .widgets-area-inner {
     ul {
         li {
+            &+li {
             margin-top: 10px;
+            }
         }
     }
 }

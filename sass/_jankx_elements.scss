@@ -2,14 +2,6 @@
     clear: both;
 }
 
-small {
-    font-size: 88%;
-}
-
-a {
-    text-decoration: none;
-}
-
 .jankx-loading {
     display: none;
 }
@@ -49,9 +41,19 @@ a {
             &.position-bottom, &.position-top {
                 display: block;
             }
+            &.position-top {
+                margin-bottom: 2px;
+            }
+            &.position-bottom {
+                margin-top: 2px;
+            }
             font-size: 88%;
         }
     }
+}
+
+#jankx-main-content {
+    line-height: 180%;
 }
 
 .jankx-footer-widgets-area {
@@ -62,4 +64,14 @@ a {
 .jankx-copyright {
     padding-top: 40px;
     padding-bottom: 40px;
+}
+
+
+
+/** Component */
+.jankx-tabs {
+    display: flex;
+
+    .tab {
+    }
 }
