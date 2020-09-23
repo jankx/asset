@@ -202,6 +202,10 @@ blockquote.right {
 .jankx-tabs {
   display: flex;
 }
+.jankx-container {
+  clear: both;
+}
+
 #jankx-site-footer {
   clear: both;
 }
@@ -285,7 +289,6 @@ blockquote.right {
   margin-left: auto;
   position: relative;
 }
-
 .jankx-base .jankx-container {
   max-width: 1140px;
 }

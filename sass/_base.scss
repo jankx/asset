@@ -1,11 +1,12 @@
-.jankx-base .jankx-container {
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-}
-
-.jankx-base .jankx-container {
-    max-width: 1140px;
+.jankx-base {
+    .jankx-container {
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+    }
+    .jankx-container {
+        max-width: 1140px;
+    }
 }
 
 @media(max-width:1024px) {
