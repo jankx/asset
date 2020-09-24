@@ -335,12 +335,11 @@ if (!class_exists(AssetManager::class)) {
 
         public function initFooterScripts()
         {
-            $jsScript = '<script>';
             $allscripts = $this->bucket->getInitFooterScripts();
+            $jsScript   = '';
             foreach ($allscripts as $script) {
                 $jsScript .= $script;
             }
-            $jsScript .= '</script>';
             echo $jsScript;
         }
 
