@@ -284,6 +284,17 @@ blockquote.right {
     width: 27.5%;
   }
 }
+.jankx-posts-layout.left-post .jankx-posts-layout-inner {
+  display: flex;
+}
+
+.jankx-posts.left-thumbnail .post {
+  display: flex;
+}
+.jankx-posts.list .post.thumbnail-left {
+  display: flex;
+}
+
 .jankx-base .jankx-container {
   margin-right: auto;
   margin-left: auto;

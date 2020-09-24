@@ -1,0 +1,27 @@
+.jankx-posts-layout {
+    &.left-post {
+        &.right-list {
+        }
+
+        .jankx-posts-layout-inner {
+            display: flex;
+        }
+    }
+}
+
+.jankx-posts {
+    &.left-thumbnail {
+        .post {
+            display: flex;
+        }
+    }
+
+    &.list {
+        .post {
+            &.thumbnail-left {
+                display: flex;
+            }
+        }
+    }
+}
+
