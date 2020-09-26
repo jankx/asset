@@ -21,6 +21,7 @@ if (!class_exists(AssetManager::class)) {
         public function __construct()
         {
             $this->theme = wp_get_theme();
+
             $this->loadHelpers();
             $this->createBucket();
             $this->initHooks();
@@ -53,8 +54,8 @@ if (!class_exists(AssetManager::class)) {
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
             add_action('wp_enqueue_scripts', array($this, 'callScripts'), 35);
 
-            add_action('wp_head', array($this, 'registerHeaderStyles'));
-            add_action('wp_head', array($this, 'registerHeaderScripts'));
+            add_action('wp_head', array($this, 'registerHeaderStyles'), 30);
+            add_action('wp_head', array($this, 'registerHeaderScripts'), 30);
 
             add_action('wp_footer', array($this, 'initFooterScripts'), 5);
             add_action('wp_footer', array($this, 'executeFooterScript'), 55);
@@ -187,6 +188,18 @@ if (!class_exists(AssetManager::class)) {
              * Unset the life default assets after register to Jankx Asset Manager
              */
             unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
+
+            if (current_theme_supports('render_js_template')) {
+                $templateJsFunc = file_get_contents(sprintf(
+                    '%s/resources/lib/JavaScript-Templates.js',
+                    jankx_core_asset_directory()
+                ));
+
+                init_script(sprintf(
+                    '<script>%s</script>',
+                    $templateJsFunc
+                ), true);
+            }
         }
 
         protected function callDefaultAssets()
@@ -322,14 +335,10 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerHeaderScripts()
         {
-            $jsScript = '<script>';
             $allscripts = $this->bucket->getHeaderScripts();
-            foreach ($allscripts as $scripts) {
-                foreach ($scripts as $script) {
-                    $jsScript .= $script;
-                }
+            foreach ($allscripts as $script) {
+                $jsScript .= $script;
             }
-            $jsScript .= '</script>';
             echo $jsScript;
         }
 

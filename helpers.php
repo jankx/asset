@@ -13,6 +13,11 @@ function jankx_core_asset_url($path)
     );
 }
 
+function jankx_core_asset_directory() 
+{
+    return dirname(__FILE__);
+}
+
 function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all')
 {
     return call_user_func(
