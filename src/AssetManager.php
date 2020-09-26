@@ -85,11 +85,6 @@ if (!class_exists(AssetManager::class)) {
                     'version' => '1.4.7',
                 ),
                 'tether-drop' => array(
-                    'url' => jankx_core_asset_url('lib/drop/css/drop.css'),
-                    'version' => '1.2.2',
-                    'dependences' => array('tether')
-                ),
-                'tether-drop' => array(
                     'url' => jankx_core_asset_url('lib/drop/css/drop-theme-basic.css'),
                     'version' => '1.2.2',
                     'dependences' => array('tether')
@@ -99,24 +94,10 @@ if (!class_exists(AssetManager::class)) {
                     'version' => '3.4.1',
                 ),
                 'glide-theme' => array(
-                    'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
+                    'url' => jankx_core_asset_url('lib/glide/css/glide.theme.css'),
                     'version' => '3.4.1',
                     'dependences' => array('glide')
-                ),
-                'owl-carousel2' => array(
-                    'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.carousel.css'),
-                    'version' => '2.3.4',
-                ),
-                'owl-carousel2-default' => array(
-                    'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.theme.default.css'),
-                    'version' => '2.3.4',
-                    'dependences' => array('owl-carousel2')
-                ),
-                'owl-carousel2-green' => array(
-                    'url' => jankx_core_asset_url('lib/OwlCarousel2/assets/owl.theme.green.css'),
-                    'version' => '2.3.4',
-                    'dependences' => array('owl-carousel2')
-                ),
+                )
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
@@ -155,18 +136,13 @@ if (!class_exists(AssetManager::class)) {
                     'version' => '3.4.1',
                 ),
                 'slideout' => array(
-                    'url' => jankx_core_asset_url('lib/slideout-1.0.1/slideout.js'),
+                    'url' => jankx_core_asset_url('lib/slideout/slideout.js'),
                     'version' => '1.0.1',
                 ),
                 'micromodal' => array(
                     'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
                     'version' => '0.4.6',
-                ),
-                'owl-carousel2' => array(
-                    'url' => jankx_core_asset_url('lib/OwlCarousel2/owl.carousel.js'),
-                    'version' => '2.3.4',
-                    'dependences' => array('jquery')
-                ),
+                )
             ));
 
             foreach ($defaultAssetJs as $handler => $asset) {
