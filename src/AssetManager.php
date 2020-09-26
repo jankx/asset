@@ -313,7 +313,7 @@ if (!class_exists(AssetManager::class)) {
         {
             $allscripts = $this->bucket->getHeaderScripts();
             foreach ($allscripts as $script) {
-                $jsScript .= $script;
+                $jsScript .= $script . PHP_EOL;
             }
             echo $jsScript;
         }
@@ -323,19 +323,18 @@ if (!class_exists(AssetManager::class)) {
             $allscripts = $this->bucket->getInitFooterScripts();
             $jsScript   = '';
             foreach ($allscripts as $script) {
-                $jsScript .= $script;
+                $jsScript .= $script . PHP_EOL;
             }
             echo $jsScript;
         }
 
         public function executeFooterScript()
         {
-            $jsScript = '<script>';
+            $jsScript = '';
             $allscripts = $this->bucket->getExcuteFooterScripts();
             foreach ($allscripts as $script) {
-                $jsScript .= $script;
+                $jsScript .= $script . PHP_EOL;
             }
-            $jsScript .= '</script>';
             echo $jsScript;
         }
     }
