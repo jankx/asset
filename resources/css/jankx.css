@@ -160,30 +160,6 @@ blockquote.right {
   text-indent: -9999px;
 }
 
-.jankx-ui.navigation ul.menu {
-  display: flex;
-  align-items: center;
-}
-.jankx-ui.navigation li a {
-  display: block;
-  padding: 5px 10px;
-}
-.jankx-ui.navigation li.small-text a {
-  font-size: 88%;
-}
-.jankx-ui.navigation .jankx-subtitle {
-  font-size: 88%;
-}
-.jankx-ui.navigation .jankx-subtitle.position-bottom, .jankx-ui.navigation .jankx-subtitle.position-top {
-  display: block;
-}
-.jankx-ui.navigation .jankx-subtitle.position-top {
-  margin-bottom: 2px;
-}
-.jankx-ui.navigation .jankx-subtitle.position-bottom {
-  margin-top: 2px;
-}
-
 #jankx-main-content {
   line-height: 180%;
 }
@@ -201,6 +177,31 @@ blockquote.right {
 /** Component */
 .jankx-tabs {
   display: flex;
+}
+@media (min-width: 767px) {
+  .jankx-ui.navigation ul.menu {
+    display: flex;
+    align-items: center;
+  }
+  .jankx-ui.navigation li a {
+    display: block;
+    padding: 5px 10px;
+  }
+  .jankx-ui.navigation li.small-text a {
+    font-size: 88%;
+  }
+  .jankx-ui.navigation .jankx-subtitle {
+    font-size: 88%;
+  }
+  .jankx-ui.navigation .jankx-subtitle.position-bottom, .jankx-ui.navigation .jankx-subtitle.position-top {
+    display: block;
+  }
+  .jankx-ui.navigation .jankx-subtitle.position-top {
+    margin-bottom: 2px;
+  }
+  .jankx-ui.navigation .jankx-subtitle.position-bottom {
+    margin-top: 2px;
+  }
 }
 .jankx-container {
   clear: both;
