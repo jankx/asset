@@ -312,6 +312,7 @@ if (!class_exists(AssetManager::class)) {
         public function registerHeaderScripts()
         {
             $allscripts = $this->bucket->getHeaderScripts();
+            $jsScript   = '';
             foreach ($allscripts as $script) {
                 $jsScript .= $script . PHP_EOL;
             }
