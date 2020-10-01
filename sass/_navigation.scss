@@ -1,0 +1,39 @@
+.default-navigation {
+    ul.menu {
+        display: flex;
+        > li {
+            position: relative;
+            &:hover {
+                .sub-menu {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            z-index: 10;
+
+            >li {
+                position: relative;
+                display: block;
+                white-space: nowrap;
+                &:hover{
+                    .sub-menu {
+                        display: block;
+                    }
+                }
+
+                >.sub-menu {
+                    display: none;
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                }
+            }
+        }
+    }
+}

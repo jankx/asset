@@ -74,26 +74,30 @@ strong {
   margin: 0 0 1.5em 0;
 }
 
-.alignleft, img.alignleft {
+.alignleft,
+img.alignleft {
   margin-right: 1.5em;
-  display: inline;
+  display: block;
   float: left;
 }
 
-.alignright, img.alignright {
+.alignright,
+img.alignright {
   margin-left: 1.5em;
-  display: inline;
+  display: block;
   float: right;
 }
 
-.aligncenter, img.aligncenter {
+.aligncenter,
+img.aligncenter {
   margin-right: auto;
   margin-left: auto;
   display: block;
   clear: both;
 }
 
-.alignnone, img.alignnone {
+.alignnone,
+img.alignnone {
   /* not sure about this one */
 }
 
@@ -179,17 +183,6 @@ blockquote.right {
   display: flex;
 }
 @media (min-width: 767px) {
-  .jankx-ui.navigation ul.menu {
-    display: flex;
-    align-items: center;
-  }
-  .jankx-ui.navigation li a {
-    display: block;
-    padding: 5px 10px;
-  }
-  .jankx-ui.navigation li.small-text a {
-    font-size: 88%;
-  }
   .jankx-ui.navigation .jankx-subtitle {
     font-size: 88%;
   }
@@ -285,6 +278,38 @@ blockquote.right {
     width: 27.5%;
   }
 }
+.default-navigation ul.menu {
+  display: flex;
+}
+.default-navigation ul.menu > li {
+  position: relative;
+}
+.default-navigation ul.menu > li:hover .sub-menu {
+  display: flex;
+  flex-direction: column;
+}
+.default-navigation ul.menu .sub-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 10;
+}
+.default-navigation ul.menu .sub-menu > li {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+}
+.default-navigation ul.menu .sub-menu > li:hover .sub-menu {
+  display: block;
+}
+.default-navigation ul.menu .sub-menu > li > .sub-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
 .jankx-posts-layout.left-post .jankx-posts-layout-inner {
   display: flex;
 }
@@ -301,20 +326,7 @@ blockquote.right {
   margin-left: auto;
   position: relative;
 }
-.jankx-base .jankx-container {
-  max-width: 1140px;
-}
 
-@media (max-width: 1024px) {
-  .jankx-base .jankx-container {
-    max-width: 1025px;
-  }
-}
-@media (max-width: 767px) {
-  .jankx-base .jankx-container {
-    max-width: 768px;
-  }
-}
 .widgets-area-inner ul li + li {
   margin-top: 10px;
 }

@@ -47,22 +47,6 @@
 @media(min-width: 767px) {
     .jankx-ui {
         &.navigation {
-            ul.menu {
-                display: flex;
-                align-items: center;
-            }
-            li {
-                a {
-                    display: block;
-                    padding: 5px 10px;
-                }
-                &.small-text {
-                    a {
-                        font-size: 88%;
-                    }
-                }
-            }
-
             .jankx-subtitle {
                 &.position-bottom, &.position-top {
                     display: block;

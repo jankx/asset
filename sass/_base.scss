@@ -4,19 +4,10 @@
         margin-left: auto;
         position: relative;
     }
-    .jankx-container {
-        max-width: 1140px;
-    }
 }
 
 @media(max-width:1024px) {
-    .jankx-base .jankx-container {
-        max-width: 1025px;
-    }
 }
 
 @media(max-width:767px) {
-    .jankx-base .jankx-container {
-        max-width: 768px;
-    }
 }
