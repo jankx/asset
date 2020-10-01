@@ -36,6 +36,10 @@ class JsItem extends AssetItem
         }
 
         $this->isRegistered = true;
+        if ($this->preload) {
+            add_filter('script_loader_tag', array($this, 'createPreloadScript'), 10, 3);
+        }
+
         return wp_register_script(
             $this->id,
             $this->url,
@@ -43,5 +47,22 @@ class JsItem extends AssetItem
             $this->version,
             $this->isFooterScript
         );
+    }
+
+    public function createPreloadScript($tag, $handle, $src)
+    {
+        if ($handle !== $this->id) {
+            return $tag;
+        }
+
+        $tag = preg_replace(
+            '/^(<[^ ]+)/',
+            '$1 rel="reload"',
+            $tag
+        );
+        if ($this->preload) {
+            remove_filter('script_loader_tag', array($this, 'createPreloadScript'), 10);
+        }
+        return $tag;
     }
 }

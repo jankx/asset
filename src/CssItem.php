@@ -48,7 +48,8 @@ class CssItem extends AssetItem
         );
     }
 
-    public function createLinkPreload($tag, $handle, $href, $media) {
+    public function createLinkPreload($tag, $handle, $href, $media)
+    {
         if ($handle !== $this->id) {
             return $tag;
         }
@@ -58,10 +59,10 @@ class CssItem extends AssetItem
             '$1$2preload$4 onload=$2this.rel="$3"$2',
             $tag
         );
-
-        // Remove filter after replace the link
-        remove_filter('style_loader_tag', array($this, 'createLinkPreload'), 10);
-
+        if ($this->preload) {
+            // Remove filter after replace the link
+            remove_filter('style_loader_tag', array($this, 'createLinkPreload'), 10);
+        }
         return $tag;
     }
 }
