@@ -189,7 +189,7 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerThemeAssets()
         {
-            $jankxCssDeps = apply_filters('jankx_template_css_dependences', ['jankx-base', 'material-icons']);
+            $jankxCssDeps = array('jankx-base', 'material-icons');
             $stylesheetName = $this->theme->get_stylesheet();
 
             if (is_child_theme()) {
@@ -207,7 +207,7 @@ if (!class_exists(AssetManager::class)) {
             css(
                 $stylesheetName,
                 get_stylesheet_uri(),
-                $jankxCssDeps,
+                apply_filters('jankx_template_css_dependences', $jankxCssDeps, $stylesheetName),
                 $this->theme->version
             );
 
