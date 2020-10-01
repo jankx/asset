@@ -6,14 +6,16 @@ class JsItem extends AssetItem
 
     protected $isRegistered = false;
     public $isFooterScript  = true;
+    public $preload         = false;
 
-    public function __construct($id, $url, $dependences, $version, $isFooterScript = true)
+    public function __construct($id, $url, $dependences = array(), $version = null, $isFooterScript = true, $preload = false)
     {
         parent::__construct(
             $id,
             $url,
             $dependences,
-            $version
+            $version,
+            $preload
         );
         $this->isFooterScript = $isFooterScript;
     }

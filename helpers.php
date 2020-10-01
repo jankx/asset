@@ -13,12 +13,12 @@ function jankx_core_asset_url($path)
     );
 }
 
-function jankx_core_asset_directory() 
+function jankx_core_asset_directory()
 {
     return dirname(__FILE__);
 }
 
-function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all')
+function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
 {
     return call_user_func(
         array(asset(), 'css'),
@@ -26,11 +26,12 @@ function css($handler, $cssUrl = null, $dependences = [], $version = null, $medi
         $cssUrl,
         $dependences,
         $version,
-        $media
+        $media,
+        $preload
     );
 }
 
-function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true)
+function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
 {
     return call_user_func(
         array(asset(), 'js'),
@@ -38,7 +39,8 @@ function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFoot
         $jsUrl,
         $dependences,
         $version,
-        $isFooterScript
+        $isFooterScript,
+        $preload
     );
 }
 

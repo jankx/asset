@@ -8,13 +8,15 @@ abstract class AssetItem implements AssetInterface
     public $id;
     public $url = '';
     public $version = null;
+    public $preload = false;
 
-    public function __construct($id, $url, $dependences, $version)
+    public function __construct($id, $url, $dependences, $version, $preload)
     {
         $this->id = $id;
         $this->url = $url;
         $this->dependences = $dependences;
         $this->version = $version;
+        $this->preload = $preload;
 
         if ($dependences) {
             $this->hasDependences = true;

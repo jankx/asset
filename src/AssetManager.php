@@ -105,13 +105,14 @@ if (!class_exists(AssetManager::class)) {
                     'dependences' => array(),
                     'version' => null,
                     'media' => 'all',
+                    'preload' => false
                 ));
 
                 if (empty($asset['url'])) {
                     continue;
                 }
 
-                css($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['media']);
+                css($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['media'], $asset['preload']);
             }
 
             /**
@@ -151,13 +152,14 @@ if (!class_exists(AssetManager::class)) {
                     'dependences' => array(),
                     'version' => null,
                     'footer' => true,
+                    'preload' => false,
                 ));
 
                 if (empty($asset['url'])) {
                     continue;
                 }
 
-                js($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['footer']);
+                js($handler, $asset['url'], $asset['dependences'], $asset['version'], $asset['footer'], $asset['preload']);
             }
 
             /**

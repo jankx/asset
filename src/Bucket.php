@@ -23,10 +23,10 @@ class Bucket
         return self::$instance;
     }
 
-    public function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all')
+    public function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
     {
         if (!empty($cssUrl)) {
-            $cssItem = new CssItem($handler, $cssUrl, $dependences, $version, $media);
+            $cssItem = new CssItem($handler, $cssUrl, $dependences, $version, $media, $preload);
             $this->stylesheets[$handler] = $cssItem;
         } elseif ($this->isRegistered($handler)) {
             $this->enqueueCSS[] = $handler;
@@ -40,10 +40,10 @@ class Bucket
         $this->headerStyles[$media][] = $cssContent;
     }
 
-    public function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true)
+    public function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
     {
         if (!empty($jsUrl)) {
-            $jsItem = new JsItem($handler, $jsUrl, $dependences, $version, $isFooterScript);
+            $jsItem = new JsItem($handler, $jsUrl, $dependences, $version, $isFooterScript, $preload);
             $this->footerScripts[$handler] = $jsItem;
         } elseif ($this->isRegistered($handler, false)) {
             $this->enqueueJS[] = $handler;
