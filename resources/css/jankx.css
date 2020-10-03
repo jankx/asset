@@ -216,6 +216,7 @@ blockquote.right {
   .main-content-sidebar-inner {
     display: flex;
     flex-wrap: wrap;
+    flex: auto;
   }
 
   #jankx-main-content {
