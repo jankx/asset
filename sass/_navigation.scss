@@ -1,5 +1,5 @@
 .default-navigation {
-    ul.menu {
+    div.menu>ul, ul.menu {
         display: flex;
         > li {
             position: relative;

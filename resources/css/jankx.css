@@ -288,32 +288,32 @@ blockquote.right {
     margin-top: 46px;
   }
 }
-.default-navigation ul.menu {
+.default-navigation div.menu > ul, .default-navigation ul.menu {
   display: flex;
 }
-.default-navigation ul.menu > li {
+.default-navigation div.menu > ul > li, .default-navigation ul.menu > li {
   position: relative;
 }
-.default-navigation ul.menu > li:hover .sub-menu {
+.default-navigation div.menu > ul > li:hover .sub-menu, .default-navigation ul.menu > li:hover .sub-menu {
   display: flex;
   flex-direction: column;
 }
-.default-navigation ul.menu .sub-menu {
+.default-navigation div.menu > ul .sub-menu, .default-navigation ul.menu .sub-menu {
   display: none;
   position: absolute;
   top: 0;
   left: 100%;
   z-index: 10;
 }
-.default-navigation ul.menu .sub-menu > li {
+.default-navigation div.menu > ul .sub-menu > li, .default-navigation ul.menu .sub-menu > li {
   position: relative;
   display: block;
   white-space: nowrap;
 }
-.default-navigation ul.menu .sub-menu > li:hover .sub-menu {
+.default-navigation div.menu > ul .sub-menu > li:hover .sub-menu, .default-navigation ul.menu .sub-menu > li:hover .sub-menu {
   display: block;
 }
-.default-navigation ul.menu .sub-menu > li > .sub-menu {
+.default-navigation div.menu > ul .sub-menu > li > .sub-menu, .default-navigation ul.menu .sub-menu > li > .sub-menu {
   display: none;
   position: absolute;
   top: 0;
