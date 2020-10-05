@@ -182,6 +182,10 @@ blockquote.right {
 .jankx-tabs {
   display: flex;
 }
+.post-content img {
+  max-width: 100%;
+}
+
 @media (min-width: 767px) {
   .jankx-ui.navigation .jankx-subtitle {
     font-size: 88%;

@@ -44,6 +44,12 @@
     }
 }
 
+.post-content {
+    img {
+        max-width: 100%;
+    }
+}
+
 @media(min-width: 767px) {
     .jankx-ui {
         &.navigation {
