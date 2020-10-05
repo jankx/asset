@@ -292,8 +292,12 @@ blockquote.right {
     padding-top: 46px;
   }
 }
+.default-navigation .navigation {
+  width: 100%;
+}
 .default-navigation div.menu > ul, .default-navigation ul.menu {
   display: flex;
+  align-items: center;
 }
 .default-navigation div.menu > ul > li, .default-navigation ul.menu > li {
   position: relative;
@@ -301,6 +305,11 @@ blockquote.right {
 .default-navigation div.menu > ul > li:hover .sub-menu, .default-navigation ul.menu > li:hover .sub-menu {
   display: flex;
   flex-direction: column;
+}
+.default-navigation div.menu > ul > li.center, .default-navigation ul.menu > li.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 .default-navigation div.menu > ul .sub-menu, .default-navigation ul.menu .sub-menu {
   display: none;
