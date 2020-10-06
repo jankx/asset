@@ -348,6 +348,8 @@ blockquote.right {
   margin-right: auto;
   margin-left: auto;
   position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .widgets-area-inner ul li + li {
