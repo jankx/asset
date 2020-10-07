@@ -52,7 +52,7 @@ if (!class_exists(AssetManager::class)) {
             add_action('wp_enqueue_scripts', array($this, 'registerThemeAssets'));
 
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
-            add_action('wp_enqueue_scripts', array($this, 'callScripts'), 35);
+            add_action('wp_enqueue_scripts', array($this, 'callScripts'), 55);
 
             add_action('wp_head', array($this, 'registerHeaderStyles'), 30);
             add_action('wp_head', array($this, 'registerHeaderScripts'), 30);
@@ -74,6 +74,11 @@ if (!class_exists(AssetManager::class)) {
                 'fontawesome' => array(
                     'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
                     'version' => '5.9.0',
+                    'preload' => true,
+                ),
+                'animate.css' => array(
+                    'url' => jankx_core_asset_url('lib/animate.css/animate.css'),
+                    'version' => '4.1.1',
                 ),
                 'material-icons' => array(
                     'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
