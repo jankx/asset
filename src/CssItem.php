@@ -56,7 +56,7 @@ class CssItem extends AssetItem
 
         $tag = preg_replace(
             '/^(<[^ ]+ rel=)(\'|\")(\w+)(\2)/',
-            '$1$2preload$4 onload=$2this.rel="$3"$2',
+            '$1$2preload$4 as=$2style$4 onload=$2this.rel="$3"$2',
             $tag
         );
         if ($this->preload) {

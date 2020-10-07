@@ -57,7 +57,7 @@ class JsItem extends AssetItem
 
         $tag = preg_replace(
             '/^(<[^ ]+)/',
-            '$1 rel="reload"',
+            '$1 rel="reload" as="script"',
             $tag
         );
         if ($this->preload) {
