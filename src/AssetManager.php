@@ -93,15 +93,15 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
                     'version' => '3.4.1',
                 ),
-                'glide-theme' => array(,
+                'glide-theme' => array(
                     'url' => jankx_core_asset_url('lib/glide/css/glide.theme.css'),
                     'version' => '3.4.1',
                     'dependences' => array('glide')
                 ),
-                'choices' => array(,
+                'choices' => array(
                     'url' => jankx_core_asset_url('lib/Choices/styles/base.css'),
                     'version' => '9.0.1',
-                )
+                ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
@@ -148,10 +148,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
                     'version' => '0.4.6',
                 ),
-                'choices' => array(,
+                'choices' => array(
                     'url' => jankx_core_asset_url('lib/Choices/scripts/choices.js'),
                     'version' => '9.0.1',
-                )
+                ),
             ));
 
             foreach ($defaultAssetJs as $handler => $asset) {
