@@ -1,14 +1,3 @@
-.jankx-posts-layout {
-    &.left-post {
-        &.right-list {
-        }
-
-        .jankx-posts-layout-inner {
-            display: flex;
-        }
-    }
-}
-
 .jankx-posts {
     &.left-thumbnail {
         .post {
@@ -25,3 +14,15 @@
     }
 }
 
+@media(min-width: 992px) {
+    .jankx-posts-layout {
+        &.left-post {
+            &.right-list {
+            }
+
+            .jankx-posts-layout-inner {
+                display: flex;
+            }
+        }
+    }
+}

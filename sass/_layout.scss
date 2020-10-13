@@ -14,10 +14,6 @@
     width: 100%;
 }
 
-.admin-bar {
-    padding-top: 32px;
-}
-
 @media(min-width: 767px) {
     .main-content-sidebar-inner {
         display: flex;
@@ -100,11 +96,4 @@
 
 @media (max-width: 768px) {
 
-}
-
-// This rule of WordPress core
-@media (min-width: 601px) and (max-width: 782px) {
-    .admin-bar {
-        padding-top: 46px;
-    }
 }
