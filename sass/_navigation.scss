@@ -3,7 +3,7 @@
         width: 100%;
     }
 
-    div.menu>ul, ul.menu {
+    div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
         display: flex;
         align-items: center;
         > li {
