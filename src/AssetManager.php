@@ -66,10 +66,14 @@ if (!class_exists(AssetManager::class)) {
             /**
              * Register default CSS resource to Jankx Asset Manager
              */
+            $jankxBaseData = get_file_data(
+                sprintf('%s/resources/css/jankx.css', jankx_core_asset_directory()),
+                array('version' => 'Version')
+            );
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
                 'jankx-base' => array(
                     'url' => jankx_core_asset_url('css/jankx.css'),
-                    'version' => '0.2.49',
+                    'version' => $jankxBaseData['version'],
                 ),
                 'fontawesome' => array(
                     'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),

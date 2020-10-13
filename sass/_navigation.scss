@@ -1,47 +1,49 @@
-.default-navigation {
-    .navigation {
-        width: 100%;
-    }
-
-    div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
-        display: flex;
-        align-items: center;
-        > li {
-            position: relative;
-            &:hover {
-                .sub-menu {
-                    display: flex;
-                    flex-direction: column;
-                }
-            }
-            &.center {
-                flex: 1;
-                display: flex;
-                justify-content: center;
-            }
+@media(min-width: 768px) {
+    .default-navigation {
+        .navigation {
+            width: 100%;
         }
-        .sub-menu {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            z-index: 10;
 
-            >li {
+        div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
+            display: flex;
+            align-items: center;
+            > li {
                 position: relative;
-                display: block;
-                white-space: nowrap;
-                &:hover{
+                &:hover {
                     .sub-menu {
-                        display: block;
+                        display: flex;
+                        flex-direction: column;
                     }
                 }
+                &.center {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+            .sub-menu {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                z-index: 10;
 
-                >.sub-menu {
-                    display: none;
-                    position: absolute;
-                    top: 0;
-                    left: 100%;
+                >li {
+                    position: relative;
+                    display: block;
+                    white-space: nowrap;
+                    &:hover{
+                        .sub-menu {
+                            display: block;
+                        }
+                    }
+
+                    >.sub-menu {
+                        display: none;
+                        position: absolute;
+                        top: 0;
+                        left: 100%;
+                    }
                 }
             }
         }
