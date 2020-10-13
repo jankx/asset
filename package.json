@@ -1,6 +1,6 @@
 {
   "name": "@jankx/asset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax.",
   "main": "js/index.js",
   "scripts": {
