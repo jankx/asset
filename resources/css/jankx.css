@@ -170,6 +170,7 @@ blockquote.right {
 
 #jankx-main-content {
   line-height: 180%;
+  position: relative;
 }
 
 .jankx-footer-widgets-area {
