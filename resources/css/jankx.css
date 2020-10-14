@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.22
+ * Version: 1.0.23
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -433,14 +433,32 @@ blockquote.right {
   .default-navigation div.menu > ul li.hide-tablet, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-tablet {
     display: none;
   }
+  .default-navigation div.menu > ul li.mobile-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-only {
+    display: none;
+  }
+  .default-navigation div.menu > ul li.desktop-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.desktop-only {
+    display: none;
+  }
 }
 @media (min-width: 992px) {
   .default-navigation div.menu > ul li.hide-desktop, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-desktop {
     display: none;
   }
+  .default-navigation div.menu > ul li.mobile-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-only {
+    display: none;
+  }
+  .default-navigation div.menu > ul li.tablet-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
+    display: none;
+  }
 }
 @media (max-width: 767px) {
   .default-navigation div.menu > ul li.hide-mobile, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-mobile {
+    display: none;
+  }
+  .default-navigation div.menu > ul li.desktop-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.desktop-only {
+    display: none;
+  }
+  .default-navigation div.menu > ul li.tablet-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
     display: none;
   }
 }
