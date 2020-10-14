@@ -53,13 +53,14 @@ class CssItem extends AssetItem
         if ($handle !== $this->id) {
             return $tag;
         }
-
-        $tag = preg_replace(
-            '/^(<[^ ]+ rel=)(\'|\")(\w+)(\2)/',
-            '$1$2preload$4 as=$2style$4 onload=$2this.rel="$3"$2',
-            $tag
-        );
         if ($this->preload) {
+            $preload_tag = preg_replace(
+                '/^(<[^ ]+ rel=)(\'|\")(\w+)(\2) (id=\'[^\']+\') {1,}(href=\'[^\']+\')/',
+                '$1$2preload$4 $6 as=$2style$4',
+                $tag
+            );
+
+            return sprintf("%s%s", $preload_tag, $tag);
             // Remove filter after replace the link
             remove_filter('style_loader_tag', array($this, 'createLinkPreload'), 10);
         }
