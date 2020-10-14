@@ -231,7 +231,7 @@ if (!class_exists(AssetManager::class)) {
             );
 
             $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
-            $this->mainJs         = apply_filters('jankx_main_js', '');
+            $this->mainJs         = apply_filters('jankx_main_js', 'slideout');
         }
 
         public function registerStylesheets($dependences)
