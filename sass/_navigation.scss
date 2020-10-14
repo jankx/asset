@@ -53,3 +53,40 @@
         }
     }
 }
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .default-navigation {
+        div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
+            li {
+                &.hide-tablet {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .default-navigation {
+        div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
+            li {
+                &.hide-desktop {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .default-navigation {
+        div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
+            li {
+                &.hide-mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+}
