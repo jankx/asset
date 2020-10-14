@@ -4,6 +4,10 @@
             width: 100%;
         }
 
+        .menu-item-type-jankx-search-form {
+            flex: 1;
+        }
+
         div.menu>ul, :not(.widget_nav_menu) > div >ul.menu {
             display: flex;
             align-items: center;
