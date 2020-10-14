@@ -5,10 +5,16 @@
         }
     }
 
-    &.list {
-        .post {
-            &.thumbnail-left {
-                display: flex;
+    .post {
+        &.thumbnail-left {
+            display: flex;
+
+            .post-thumbnail {
+                width: 120px;
+            }
+
+            .post-infos {
+                flex: 1;
             }
         }
     }
