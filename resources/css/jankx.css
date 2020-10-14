@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.19
+ * Version: 1.0.21
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -78,6 +78,31 @@ a {
 
 strong {
   font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 150%;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5, h6 {
+  font-size: 1.1rem;
 }
 
 @media (min-width: 768px) {
