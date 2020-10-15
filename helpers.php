@@ -6,9 +6,15 @@ function asset()
 
 function jankx_core_asset_url($path)
 {
+    $abspath = constant('ABSPATH');
+    $assetDirectory = dirname(__FILE__);
+    if (PHP_OS === 'WINNT') {
+        $abspath = str_replace('\\', '/', $abspath);
+        $assetDirectory = str_replace('\\', '/', $assetDirectory);
+    }
     return sprintf(
         '%s/resources/%s',
-        str_replace(ABSPATH, site_url('/'), dirname(__FILE__)),
+        str_replace($abspath, site_url('/'), $assetDirectory),
         $path
     );
 }
