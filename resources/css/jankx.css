@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.31
+ * Version: 1.0.35
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -391,38 +391,39 @@ blockquote.right {
   .default-navigation .menu-item-type-jankx-search-form {
     flex: 1;
   }
-  .default-navigation div.menu > ul, .default-navigation :not(.widget_nav_menu) > div > ul.menu {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu {
     display: flex;
     align-items: center;
   }
-  .default-navigation div.menu > ul > li, .default-navigation :not(.widget_nav_menu) > div > ul.menu > li {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu > li {
     position: relative;
+    padding: 5px 5px;
   }
-  .default-navigation div.menu > ul > li:hover .sub-menu, .default-navigation :not(.widget_nav_menu) > div > ul.menu > li:hover .sub-menu {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu > li:hover .sub-menu {
     display: flex;
     flex-direction: column;
   }
-  .default-navigation div.menu > ul > li.center, .default-navigation :not(.widget_nav_menu) > div > ul.menu > li.center {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu > li.center {
     flex: 1;
     display: flex;
     justify-content: center;
   }
-  .default-navigation div.menu > ul .sub-menu, .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu {
     display: none;
     position: absolute;
     top: 0;
     left: 100%;
     z-index: 10;
   }
-  .default-navigation div.menu > ul .sub-menu > li, .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li {
     position: relative;
     display: block;
     white-space: nowrap;
   }
-  .default-navigation div.menu > ul .sub-menu > li:hover .sub-menu, .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li:hover .sub-menu {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li:hover .sub-menu {
     display: block;
   }
-  .default-navigation div.menu > ul .sub-menu > li > .sub-menu, .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li > .sub-menu {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li > .sub-menu {
     display: none;
     position: absolute;
     top: 0;
@@ -430,36 +431,41 @@ blockquote.right {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  .default-navigation div.menu > ul li.hide-tablet, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-tablet {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-tablet {
     display: none;
   }
-  .default-navigation div.menu > ul li.mobile-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-only {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-only {
     display: none;
   }
-  .default-navigation div.menu > ul li.desktop-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.desktop-only {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.desktop-only {
     display: none;
   }
 }
 @media (min-width: 992px) {
-  .default-navigation div.menu > ul li.hide-desktop, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-desktop {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-desktop {
     display: none;
   }
-  .default-navigation div.menu > ul li.mobile-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-only {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-only {
     display: none;
   }
-  .default-navigation div.menu > ul li.tablet-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  .default-navigation div.menu > ul li.hide-mobile, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-mobile {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-mobile {
     display: none;
   }
-  .default-navigation div.menu > ul li.desktop-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.desktop-only {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.desktop-only {
     display: none;
   }
-  .default-navigation div.menu > ul li.tablet-only, .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
     display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li {
+    padding: 5px 10px;
   }
 }
 .jankx-posts-layout .post-thumbnail {
