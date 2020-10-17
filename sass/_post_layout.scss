@@ -1,4 +1,9 @@
 .jankx-posts-layout {
+    .post {
+        .post-title {
+            font-size: 0.9rem;
+        }
+    }
     .post-thumbnail {
         max-height: 300px;
         overflow: hidden;
@@ -18,10 +23,6 @@
     }
 
     .post {
-        .post-title {
-            font-size: 0.9rem;
-        }
-
         &.thumbnail-left {
             display: flex;
 
