@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.36
+ * Version: 1.0.51
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -134,7 +134,7 @@ h5, h6 {
     bottom: 0;
     width: 256px;
     min-height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     z-index: 0;
     display: none;
@@ -245,6 +245,21 @@ blockquote.right {
 }
 .widget .widget-title {
   font-size: 125%;
+}
+
+.quick-search-form {
+  display: flex;
+}
+.quick-search-form .text-wrap {
+  flex: 1;
+}
+.quick-search-form .text-wrap input {
+  width: 100%;
+  border: none;
+  padding: 2px 5px;
+}
+.quick-search-form .search-button {
+  border: none;
 }
 
 .clearfix, .jankx-clearfix {
@@ -408,6 +423,9 @@ blockquote.right {
     display: flex;
     justify-content: center;
   }
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu > li.strong {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu {
     display: none;
     position: absolute;
@@ -486,17 +504,39 @@ blockquote.right {
 }
 .jankx-posts .post.thumbnail-left {
   display: flex;
+  margin-left: -5px;
+  margin-right: -5px;
 }
 .jankx-posts .post.thumbnail-left .post-thumbnail {
   width: 120px;
+  padding: 5px;
 }
 .jankx-posts .post.thumbnail-left .post-infos {
   flex: 1;
+  padding: 5px;
 }
 
 @media (min-width: 992px) {
   .jankx-posts-layout.left-post .jankx-posts-layout-inner {
     display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .jankx-posts-layout.left-post .post-large-image, .jankx-posts-layout.left-post .jankx-posts {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .jankx-posts-layout.left-post .post-large-image {
+    flex: 65%;
+  }
+  .jankx-posts-layout.left-post .jankx-posts {
+    flex: 35%;
+  }
+}
+@media (max-width: 767px) {
+  .jankx-posts-layout.left-post .post-large-image {
+    margin-bottom: 20px;
   }
 }
 .jankx-base .jankx-container {

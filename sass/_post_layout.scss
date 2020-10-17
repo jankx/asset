@@ -25,13 +25,17 @@
     .post {
         &.thumbnail-left {
             display: flex;
+            margin-left: -5px;
+            margin-right: -5px;
 
             .post-thumbnail {
                 width: 120px;
+                padding: 5px;
             }
 
             .post-infos {
                 flex: 1;
+                padding: 5px;
             }
         }
     }
@@ -40,11 +44,31 @@
 @media(min-width: 992px) {
     .jankx-posts-layout {
         &.left-post {
-            &.right-list {
-            }
-
             .jankx-posts-layout-inner {
                 display: flex;
+                flex-wrap: wrap;
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+            .post-large-image,.jankx-posts {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .post-large-image {
+                flex: 65%;
+            }
+            .jankx-posts {
+                flex:35%;
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .jankx-posts-layout {
+        &.left-post {
+            .post-large-image {
+                margin-bottom: 20px;
             }
         }
     }

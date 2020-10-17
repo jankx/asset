@@ -25,6 +25,9 @@
                     display: flex;
                     justify-content: center;
                 }
+                &.strong {
+                    background-color: rgba(0, 0, 0, 0.2);
+                }
             }
             .sub-menu {
                 display: none;
