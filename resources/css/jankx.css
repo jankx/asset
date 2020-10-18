@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.52
+ * Version: 1.0.53
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -282,6 +282,9 @@ blockquote.right {
 #jankx-main-content {
   line-height: 180%;
   position: relative;
+}
+#jankx-main-content > .post {
+  text-align: justify;
 }
 
 .jankx-footer-widgets-area {
