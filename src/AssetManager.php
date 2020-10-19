@@ -243,7 +243,7 @@ if (!class_exists(AssetManager::class)) {
                 js(
                     $appJsName,
                     str_replace($abspath, site_url('/'), $appjs),
-                    apply_filters('jankx_assetjs_dependences', array()),
+                    apply_filters('jankx_asset_js_dependences', array()),
                     $appJsVer,
                     true
                 );
