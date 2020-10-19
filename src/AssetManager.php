@@ -226,12 +226,31 @@ if (!class_exists(AssetManager::class)) {
             css(
                 $stylesheetName,
                 get_stylesheet_uri(),
-                apply_filters('jankx_template_css_dependences', $jankxCssDeps, $stylesheetName),
+                apply_filters('jankx_asset_css_dependences', $jankxCssDeps, $stylesheetName),
                 $this->theme->version
             );
 
+            $assetDirectory = sprintf('%s/assets', realpath(dirname(JANKX_FRAMEWORK_FILE_LOADER) . '/../../..'));
+            $appJsVer = $this->theme->version;
+            $appJsName = '';
+            if (file_exists($appjs = sprintf('%s/js/app.js', $assetDirectory))) {
+                $appJsName = 'app';
+                $abspath = constant('ABSPATH');
+                if (PHP_OS === 'WINNT') {
+                    $abspath = str_replace('\\', '/', $abspath);
+                    $appjs = str_replace('\\', '/', $appjs);
+                }
+                js(
+                    $appJsName,
+                    str_replace($abspath, site_url('/'), $appjs),
+                    apply_filters('jankx_assetjs_dependences', array()),
+                    $appJsVer,
+                    true
+                );
+            }
+
             $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
-            $this->mainJs         = apply_filters('jankx_main_js', 'slideout');
+            $this->mainJs         = apply_filters('jankx_main_js', $appJsName);
         }
 
         public function registerStylesheets($dependences)
