@@ -75,15 +75,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('css/jankx.css'),
                     'version' => $jankxBaseData['version'],
                 ),
-                'fontawesome' => array(
-                    'url' => jankx_core_asset_url('lib/fontawesome/css/all.css'),
-                    'version' => '5.9.0',
-                    'preload' => true,
-                ),
-                'animate.css' => array(
-                    'url' => jankx_core_asset_url('lib/animate.css/animate.css'),
-                    'version' => '4.1.1',
-                ),
                 'material-icons' => array(
                     'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
                     'version' => '5.5.55',
@@ -97,15 +88,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/drop/css/drop-theme-basic.css'),
                     'version' => '1.2.2',
                     'dependences' => array('tether')
-                ),
-                'glide' => array(
-                    'url' => jankx_core_asset_url('lib/glide/css/glide.core.css'),
-                    'version' => '3.4.1',
-                ),
-                'glide-theme' => array(
-                    'url' => jankx_core_asset_url('lib/glide/css/glide.theme.css'),
-                    'version' => '3.4.1',
-                    'dependences' => array('glide')
                 ),
                 'choices' => array(
                     'url' => jankx_core_asset_url('lib/Choices/styles/base.css'),
@@ -144,10 +126,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/drop/js/drop.js'),
                     'version' => '1.2.2',
                     'dependences' => array('tether')
-                ),
-                'glide' => array(
-                    'url' => jankx_core_asset_url('lib/glide/glide.js'),
-                    'version' => '3.4.1',
                 ),
                 'slideout' => array(
                     'url' => jankx_core_asset_url('lib/slideout/slideout.js'),
