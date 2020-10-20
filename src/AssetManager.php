@@ -75,6 +75,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('css/jankx.css'),
                     'version' => $jankxBaseData['version'],
                 ),
+                'hover' => array(
+                    'url' => jankx_core_asset_url('lib/hover/css/hover.css'),
+                    'version' => '2.3.2',
+                ),
                 'material-icons' => array(
                     'url' => jankx_core_asset_url('lib/MaterialDesign-Webfont/css/materialdesignicons.css'),
                     'version' => '5.5.55',
@@ -92,6 +96,10 @@ if (!class_exists(AssetManager::class)) {
                 'choices' => array(
                     'url' => jankx_core_asset_url('lib/Choices/styles/base.css'),
                     'version' => '9.0.1',
+                ),
+                'splide' => array(
+                    'url' => jankx_core_asset_url('lib/splide/css/splide.min.css'),
+                    'version' => '2.4.12',
                 ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
@@ -130,6 +138,10 @@ if (!class_exists(AssetManager::class)) {
                 'slideout' => array(
                     'url' => jankx_core_asset_url('lib/slideout/slideout.js'),
                     'version' => '1.0.1',
+                ),
+                'splide' => array(
+                    'url' => jankx_core_asset_url('lib/splide/js/splide.js'),
+                    'version' => '2.4.12',
                 ),
                 'micromodal' => array(
                     'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
