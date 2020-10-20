@@ -1,3 +1,61 @@
+.jankx-posts {
+    &[class*="columns-"] {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -10px;
+        margin-right: -10px;
+
+        .loop-item {
+            width: 100%;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+    .loop-item {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .jankx-posts {
+        &.columns- {
+            &4 {
+                .loop-item {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .jankx-posts {
+        &.columns- {
+            &4 {
+                .loop-item {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .jankx-posts {
+        &.columns- {
+            &4 {
+                .loop-item {
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+// Old structure will be refactor
 .jankx-posts-layout {
     .post {
         .post-title {
