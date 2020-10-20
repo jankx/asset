@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.61
+ * Version: 1.0.62
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -487,6 +487,31 @@ blockquote.right {
 @media (min-width: 1200px) {
   .default-navigation :not(.widget_nav_menu) > div > ul.menu li {
     padding: 5px 10px;
+  }
+}
+.jankx-posts[class*=columns-] {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.jankx-posts[class*=columns-] .loop-item {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.jankx-posts .loop-item {
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .jankx-posts.columns-4 .loop-item {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .jankx-posts.columns-4 .loop-item {
+    width: 25%;
   }
 }
 .jankx-posts-layout .post .post-title {
