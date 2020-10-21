@@ -58,7 +58,7 @@ if (!class_exists(AssetManager::class)) {
             add_action('wp_head', array($this, 'registerHeaderScripts'), 30);
 
             add_action('wp_footer', array($this, 'initFooterScripts'), 5);
-            add_action('wp_footer', array($this, 'executeFooterScript'), 55);
+            add_action('wp_print_footer_scripts', array($this, 'executeFooterScript'), 30);
         }
 
         public function registerDefaultAssets()
