@@ -28,6 +28,11 @@
                 &.strong {
                     background-color: rgba(0, 0, 0, 0.2);
                 }
+                &.right {
+                    flex: 1;
+                    width: 100%;
+                    text-align: right;
+                }
             }
             .sub-menu {
                 display: none;
