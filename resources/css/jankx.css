@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.63
+ * Version: 1.0.72
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -418,8 +418,8 @@ blockquote.right {
     padding: 5px 5px;
   }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu > li:hover .sub-menu {
-    display: flex;
-    flex-direction: column;
+    visibility: visible;
+    opacity: 1;
   }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu > li.center {
     flex: 1;
@@ -434,12 +434,20 @@ blockquote.right {
     width: 100%;
     text-align: right;
   }
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu > li:not(.right) .sub-menu {
+    left: 0%;
+  }
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu > li.right .sub-menu {
+    right: 0%;
+  }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
     position: absolute;
-    top: 0;
-    left: 100%;
+    top: 100%;
     z-index: 10;
+    background: #fff;
   }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li {
     position: relative;

@@ -16,8 +16,8 @@
                 padding: 5px 5px;
                 &:hover {
                     .sub-menu {
-                        display: flex;
-                        flex-direction: column;
+                        visibility: visible;
+                        opacity: 1;
                     }
                 }
                 &.center {
@@ -33,13 +33,28 @@
                     width: 100%;
                     text-align: right;
                 }
+
+                &:not(.right) {
+                    .sub-menu {
+                        left: 0%;
+                    }
+                }
+                &.right {
+                    .sub-menu {
+                        right: 0%;
+                    }
+                }
             }
+
             .sub-menu {
-                display: none;
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s, opacity 0.5s linear;
+
                 position: absolute;
-                top: 0;
-                left: 100%;
+                top: 100%;
                 z-index: 10;
+                background: #fff;
 
                 >li {
                     position: relative;
