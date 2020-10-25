@@ -455,10 +455,13 @@ blockquote.right {
     white-space: nowrap;
   }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li:hover .sub-menu {
-    display: block;
+    visibility: visible;
+    opacity: 1;
   }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu .sub-menu > li > .sub-menu {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
     position: absolute;
     top: 0;
     left: 100%;

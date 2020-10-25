@@ -62,12 +62,16 @@
                     white-space: nowrap;
                     &:hover{
                         .sub-menu {
-                            display: block;
+                            visibility: visible;
+                            opacity: 1;
                         }
                     }
 
                     >.sub-menu {
-                        display: none;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: visibility 0s, opacity 0.5s linear;
+
                         position: absolute;
                         top: 0;
                         left: 100%;
