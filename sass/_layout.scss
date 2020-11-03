@@ -6,6 +6,15 @@
     clear: both;
 }
 
+.main-content {
+    word-wrap: break-word;
+    p {
+        &+p {
+            margin-top: 10px;
+        }
+    }
+}
+
 #jankx-main-content, .sidebar {
     min-height: 100px;
 }
