@@ -572,6 +572,14 @@ blockquote.right {
   padding-right: 10px;
 }
 
+.post ul.post-metas {
+  display: flex;
+  margin-top: 10px;
+}
+.post ul.post-metas li + li {
+  margin-left: 10px;
+}
+
 .carousel-layout .splide__arrows {
   padding-left: 10px;
   padding-right: 10px;
