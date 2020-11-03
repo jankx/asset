@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.0.76
+ * Version: 1.1.0
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -351,9 +351,11 @@ blockquote.right {
   }
   .jankx-scs #jankx-primary-sidebar, .jankx-css #jankx-primary-sidebar, .jankx-ssc #jankx-primary-sidebar {
     width: 50%;
+    order: 1;
   }
   .jankx-scs #jankx-secondary-sidebar, .jankx-css #jankx-secondary-sidebar, .jankx-ssc #jankx-secondary-sidebar {
     width: 50%;
+    order: 2;
   }
 
   .jankx-sc #jankx-primary-sidebar, .jankx-sc #jankx-secondary-sidebar, .jankx-cs #jankx-primary-sidebar, .jankx-cs #jankx-secondary-sidebar {
@@ -379,6 +381,43 @@ blockquote.right {
   }
   .jankx-sc .sidebar, .jankx-sc #jankx-primary-sidebar, .jankx-sc #jankx-secondary-sidebar, .jankx-cs .sidebar, .jankx-cs #jankx-primary-sidebar, .jankx-cs #jankx-secondary-sidebar {
     width: 30%;
+  }
+
+  .jankx-sc #jankx-main-content {
+    order: 2;
+  }
+  .jankx-sc #jankx-primary-sidebar {
+    order: 1;
+  }
+
+  .jankx-scs #jankx-main-content {
+    order: 2;
+  }
+  .jankx-scs #jankx-primary-sidebar {
+    order: 1;
+  }
+  .jankx-scs #jankx-secondary-sidebar {
+    order: 3;
+  }
+
+  .jankx-css #jankx-main-content {
+    order: 1;
+  }
+  .jankx-css #jankx-primary-sidebar {
+    order: 2;
+  }
+  .jankx-css #jankx-secondary-sidebar {
+    order: 3;
+  }
+
+  .jankx-ssc #jankx-main-content {
+    order: 3;
+  }
+  .jankx-ssc #jankx-primary-sidebar {
+    order: 1;
+  }
+  .jankx-ssc #jankx-secondary-sidebar {
+    order: 2;
   }
 }
 @media (min-width: 1200px) {

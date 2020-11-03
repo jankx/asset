@@ -29,9 +29,11 @@
         }
         #jankx-primary-sidebar {
             width: 50%;
+            order: 1;
         }
         #jankx-secondary-sidebar {
             width: 50%;
+            order: 2;
         }
     }
     .jankx-sc,.jankx-cs {
@@ -62,6 +64,49 @@
         }
         .sidebar, #jankx-primary-sidebar, #jankx-secondary-sidebar {
             width: 30%;
+        }
+    }
+
+    .jankx-sc {
+        #jankx-main-content {
+            order: 2;
+        }
+        #jankx-primary-sidebar {
+            order: 1;
+        }
+    }
+
+    .jankx-scs {
+        #jankx-main-content {
+            order: 2;
+        }
+        #jankx-primary-sidebar {
+            order: 1;
+        }
+        #jankx-secondary-sidebar {
+            order: 3;
+        }
+    }
+    .jankx-css {
+        #jankx-main-content {
+            order: 1;
+        }
+        #jankx-primary-sidebar {
+            order: 2;
+        }
+        #jankx-secondary-sidebar {
+            order: 3;
+        }
+    }
+    .jankx-ssc {
+        #jankx-main-content {
+            order: 3;
+        }
+        #jankx-primary-sidebar {
+            order: 1;
+        }
+        #jankx-secondary-sidebar {
+            order: 2;
         }
     }
 }
