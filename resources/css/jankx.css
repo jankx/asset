@@ -586,7 +586,7 @@ blockquote.right {
 
 @media (min-width: 768px) {
   .post ul.post-metas {
-    display: block;
+    display: flex;
   }
   .post ul.post-metas li + li {
     margin-left: 10px;
