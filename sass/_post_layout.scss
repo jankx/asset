@@ -22,13 +22,7 @@
 
 .post {
     ul.post-metas {
-        display: flex;
         margin-top: 10px;
-        li {
-            &+li {
-                margin-left: 10px;
-            }
-        }
     }
 }
 
@@ -40,6 +34,18 @@
 }
 
 @media (min-width: 768px) {
+    .post {
+        ul.post-metas {
+            display: block;
+
+            li {
+                &+li {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
     .jankx-posts {
         &.columns- {
             &4 {
