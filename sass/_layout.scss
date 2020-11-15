@@ -27,8 +27,15 @@
     .main-content-sidebar-inner {
         display: flex;
         flex-wrap: wrap;
-        flex: auto;
+        margin-left: -10px;
+        margin-right: -10px;
+
     }
+    #jankx-main-content, #jankx-primary-sidebar, #jankx-secondary-sidebar {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     #jankx-main-content {
         width: 100%;
     }
