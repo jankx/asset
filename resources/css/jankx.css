@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.1.7
+ * Version: 1.1.22
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -301,6 +301,7 @@ blockquote.right {
 .jankx-tabs {
   display: flex;
 }
+
 .post-content {
   margin-top: 10px;
 }
@@ -328,15 +329,6 @@ blockquote.right {
 
 #jankx-site-footer {
   clear: both;
-}
-
-.main-content-sidebar-inner {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.main-content-sidebar-inner .main-content, .main-content-sidebar-inner .sidebar {
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .main-content {
@@ -563,34 +555,19 @@ blockquote.right {
     padding: 5px 10px;
   }
 }
-.jankx-posts {
-  margin-left: -10px;
-  margin-right: -10px;
-}
 .jankx-posts[class*=columns-] {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -10px;
-  margin-right: -10px;
 }
 .jankx-posts[class*=columns-] .loop-item {
   width: 100%;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 .jankx-posts .loop-item {
   margin-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .post ul.post-metas {
   margin-top: 10px;
-}
-
-.carousel-layout .splide__arrows {
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 @media (min-width: 768px) {
@@ -644,12 +621,6 @@ blockquote.right {
   .jankx-posts-layout.left-post .jankx-posts-layout-inner {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  .jankx-posts-layout.left-post .post-large-image, .jankx-posts-layout.left-post .jankx-posts {
-    padding-left: 10px;
-    padding-right: 10px;
   }
   .jankx-posts-layout.left-post .post-large-image {
     flex: 65%;
@@ -669,11 +640,6 @@ blockquote.right {
   position: relative;
 }
 
-body:not(.jankx-base) > :not(.main-content-sidebar) .jankx-container {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
 .screen-reader-text {
   position: absolute;
   top: -10000em;
@@ -684,15 +650,6 @@ body:not(.jankx-base) > :not(.main-content-sidebar) .jankx-container {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-.footer-widgets-area .widgets-area-inner {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.footer-widgets-area .jankx-footer-widget {
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .widgets-area-inner {
