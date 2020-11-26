@@ -11,7 +11,14 @@
 }
 
 @media(min-width: 768px) {
+    .footer-widgets-area {
+        .jankx-container {
+            overflow: hidden;
+        }
+    }
     .widgets-area-inner {
+        margin-left: -10px;
+        margin-right: -10px;
         .jankx-footer-widget {
             padding-left: 10px;
             padding-right: 10px;
