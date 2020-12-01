@@ -32,6 +32,14 @@
     }
 
     .jankx-posts {
+        margin-left: -10px;
+        margin-right: -10px;
+
+        .loop-item {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
         &.columns- {
             &4 {
                 .loop-item {
