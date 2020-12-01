@@ -46,10 +46,44 @@
     display: flex;
 }
 
-.post-content {
-    margin-top: 10px;
-    img {
-        max-width: 100%;
+article {
+    .post-content {
+        margin-top: 10px;
+        img {
+            max-width: 100%;
+        }
+
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 20px;
+
+            ul {
+                list-style: circle;
+                ul {
+                    list-style: square;
+                }
+            }
+        }
+        ol {
+            list-style: decimal;
+        }
+    }
+}
+
+table {
+    margin-top: 20px;
+
+    thead th, td.heading {
+        font-weight: bold;
+        background: #e5e5e5;
+    }
+    &:not(.no-border) {
+        th, td {
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            padding: 5px;
+        }
     }
 }
 
