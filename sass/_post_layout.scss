@@ -12,14 +12,14 @@
     }
 }
 
-.post {
+.loop-item {
     ul.post-metas {
         margin-top: 10px;
     }
 }
 
 @media (min-width: 768px) {
-    .post {
+    .loop-item {
         ul.post-metas {
             display: flex;
 
@@ -68,7 +68,7 @@
 
 // Old structure will be refactor
 .jankx-posts-layout {
-    .post {
+    .loop-item {
         .post-title {
             font-size: 0.9rem;
         }
@@ -91,7 +91,7 @@
         }
     }
 
-    .post {
+    .loop-item {
         &.thumbnail-left {
             display: flex;
             margin-left: -5px;

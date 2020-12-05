@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.1.42
+ * Version: 1.1.43
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -607,15 +607,15 @@ table:not(.no-border) th, table:not(.no-border) td {
   margin-bottom: 20px;
 }
 
-.post ul.post-metas {
+.loop-item ul.post-metas {
   margin-top: 10px;
 }
 
 @media (min-width: 768px) {
-  .post ul.post-metas {
+  .loop-item ul.post-metas {
     display: flex;
   }
-  .post ul.post-metas li + li {
+  .loop-item ul.post-metas li + li {
     margin-left: 10px;
   }
 
@@ -636,7 +636,7 @@ table:not(.no-border) th, table:not(.no-border) td {
     width: 25%;
   }
 }
-.jankx-posts-layout .post .post-title {
+.jankx-posts-layout .loop-item .post-title {
   font-size: 0.9rem;
 }
 .jankx-posts-layout .post-thumbnail {
@@ -652,16 +652,16 @@ table:not(.no-border) th, table:not(.no-border) td {
 .jankx-posts.left-thumbnail .post {
   display: flex;
 }
-.jankx-posts .post.thumbnail-left {
+.jankx-posts .loop-item.thumbnail-left {
   display: flex;
   margin-left: -5px;
   margin-right: -5px;
 }
-.jankx-posts .post.thumbnail-left .post-thumbnail {
+.jankx-posts .loop-item.thumbnail-left .post-thumbnail {
   width: 120px;
   padding: 5px;
 }
-.jankx-posts .post.thumbnail-left .post-infos {
+.jankx-posts .loop-item.thumbnail-left .post-infos {
   flex: 1;
   padding: 5px;
 }
