@@ -84,6 +84,11 @@ if (!class_exists(AssetManager::class)) {
                     'version' => '5.5.55',
                     'preload' => true,
                 ),
+                'iconpicker' => array(
+                    'url' => jankx_core_asset_url('lib/iconpicker/iconpicker-1.5.0.css'),
+                    'version' => '1.5.0',
+                    'dependences' => array('material-icons')
+                ),
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
                     'version' => '1.4.7',
@@ -134,6 +139,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/drop/js/drop.js'),
                     'version' => '1.2.2',
                     'dependences' => array('tether')
+                ),
+                'iconpicker' => array(
+                    'url' => jankx_core_asset_url('lib/iconpicker/iconpicker-1.5.0.js'),
+                    'version' => '1.5.0',
                 ),
                 'slideout' => array(
                     'url' => jankx_core_asset_url('lib/slideout/slideout.js'),
