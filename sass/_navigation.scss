@@ -132,6 +132,21 @@
                 &.tablet-only {
                     display: none;
                 }
+
+
+                /*******************************
+                 * Work with menu-icons plugins
+                 ******************************/
+                &.mobile-hide-text {
+                    span {
+                        display: none;
+                    }
+                }
+                &.mobile-hide-icon {
+                    ._mi {
+                        display: none;
+                    }
+                }
             }
         }
     }

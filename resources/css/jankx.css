@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.1.47
+ * Version: 1.1.48
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -581,6 +581,11 @@ table:not(.no-border) th, table:not(.no-border) td {
   }
 }
 @media (max-width: 767px) {
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li {
+    /*******************************
+     * Work with menu-icons plugins
+     ******************************/
+  }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu li.hide-mobile {
     display: none;
   }
@@ -588,6 +593,12 @@ table:not(.no-border) th, table:not(.no-border) td {
     display: none;
   }
   .default-navigation :not(.widget_nav_menu) > div > ul.menu li.tablet-only {
+    display: none;
+  }
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-hide-text span {
+    display: none;
+  }
+  .default-navigation :not(.widget_nav_menu) > div > ul.menu li.mobile-hide-icon ._mi {
     display: none;
   }
 }
