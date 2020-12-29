@@ -106,10 +106,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/splide/css/splide-core.min.css'),
                     'version' => '2.4.12',
                 ),
-                'glightbox' => array(
-                    'url' => jankx_core_asset_url('lib/glightbox/css/glightbox.css'),
-                    'version' => '3.0.6',
-                ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
@@ -164,9 +160,9 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/Choices/scripts/choices.js'),
                     'version' => '9.0.1',
                 ),
-                'glightbox' => array(
-                    'url' => jankx_core_asset_url('lib/glightbox/js/glightbox.js'),
-                    'version' => '3.0.6',
+                'fslightbox-basic' => array(
+                    'url' => jankx_core_asset_url('lib/fslightbox-basic/fslightbox.js'),
+                    'version' => '3.2.3',
                 ),
             ));
 
