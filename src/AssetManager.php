@@ -201,7 +201,7 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerThemeAssets()
         {
-            $jankxCssDeps = array('jankx-base', 'material-icons');
+            $jankxCssDeps = array('jankx-base');
             $stylesheetName = $this->theme->get_stylesheet();
 
             if (is_child_theme()) {
