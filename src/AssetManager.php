@@ -164,6 +164,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/fslightbox-basic/fslightbox.js'),
                     'version' => '3.2.3',
                 ),
+                'sharing' => array(
+                    'url' => jankx_core_asset_url('lib/vanilla-sharing/vanilla-sharing.umd.js'),
+                    'version' => '6.0.5',
+                )
             ));
 
             foreach ($defaultAssetJs as $handler => $asset) {
