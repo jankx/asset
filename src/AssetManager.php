@@ -121,6 +121,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/modernizr-3.7.1.min.js'),
                     'version' => '3.7.1',
                 ),
+                'scroll-to-smooth' => array(
+                    'url' => jankx_core_asset_url('lib/scrollToSmooth/scrolltosmooth.min.js'),
+                    'version' => '2.2.1',
+                ),
                 'tether' => array(
                     'url' => jankx_core_asset_url('lib/tether/js/tether.js'),
                     'version' => '1.4.7',
@@ -236,7 +240,7 @@ if (!class_exists(AssetManager::class)) {
                 js(
                     $appJsName,
                     str_replace($abspath, site_url('/'), $appjs),
-                    apply_filters('jankx_asset_js_dependences', array()),
+                    apply_filters('jankx_asset_js_dependences', array('scroll-to-smooth')),
                     $appJsVer,
                     true
                 );
