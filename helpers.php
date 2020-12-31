@@ -68,11 +68,12 @@ function init_script($js, $isHeaderScript = false)
     );
 }
 
-function execute_script($jsContent)
+function execute_script($jsContent, $autoWrapByScriptTag = false)
 {
     return call_user_func(
         array(asset(), 'executeScript'),
-        $jsContent
+        $jsContent,
+        $autoWrapByScriptTag
     );
 }
 

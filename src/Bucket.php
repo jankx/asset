@@ -61,8 +61,11 @@ class Bucket
         }
     }
 
-    public function executeScript($jsContent)
+    public function executeScript($jsContent, $autoWrapByScriptTag = false)
     {
+        if ($autoWrapByScriptTag) {
+            $jsContent = '<script>' . $jsContent . '</script>';
+        }
         $this->executeFooterScripts[] = $jsContent;
     }
 
