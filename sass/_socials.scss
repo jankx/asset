@@ -1,3 +1,11 @@
+/************************
+ * Social sharing
+ ************************/
 #jankx-sharing-content {
     display: none;
+}
+.drop-element {
+    &.drop-open {
+        z-index: 99;
+    }
 }
