@@ -96,6 +96,11 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/splide/css/splide-core.min.css'),
                     'version' => '2.4.12',
                 ),
+                'splide-theme' => array(
+                    'url' => jankx_core_asset_url('lib/splide/css/themes/splide-default.min.css'),
+                    'dependences' => array('splide'),
+                    'version' => '2.4.12',
+                )
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
