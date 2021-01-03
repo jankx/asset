@@ -3,7 +3,7 @@
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
  * Description: This module is create the basic structure for Jankx theme. Other stylesheet will be defined in the theme
- * Version: 1.1.57
+ * Version: 1.1.64
  */
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
@@ -260,6 +260,33 @@ blockquote.right {
 }
 .quick-search-form .search-button {
   border: none;
+}
+
+#commentform textarea,
+#commentform input[type=text],
+#commentform input[type=password],
+#commentform input[type=date],
+#commentform input[type=number],
+#commentform input[type=url],
+#commentform input[type=email] {
+  width: 100%;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+.comment + .comment {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+.comment .comment-body {
+  display: flex;
+}
+.comment .author-avatar {
+  width: 150px;
+}
+.comment .body {
+  flex: 1;
 }
 
 .clearfix, .jankx-clearfix {
