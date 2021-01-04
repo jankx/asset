@@ -4,6 +4,15 @@
 #jankx-sharing-content {
     display: none;
 }
+.social-sharing-button {
+    cursor: pointer;
+}
+.jankx-socials-sharing {
+    .jankx-sharing-button {
+        cursor: pointer;
+    }
+}
+
 .drop-element {
     &.drop-open {
         z-index: 99;
