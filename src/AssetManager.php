@@ -79,15 +79,6 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/hover/css/hover.css'),
                     'version' => '2.3.2',
                 ),
-                'tether' => array(
-                    'url' => jankx_core_asset_url('lib/tether/css/tether.css'),
-                    'version' => '1.4.7',
-                ),
-                'tether-drop' => array(
-                    'url' => jankx_core_asset_url('lib/drop/css/drop-theme-basic.css'),
-                    'version' => '1.2.2',
-                    'dependences' => array('tether')
-                ),
                 'choices' => array(
                     'url' => jankx_core_asset_url('lib/Choices/styles/base.css'),
                     'version' => '9.0.1',
@@ -130,14 +121,9 @@ if (!class_exists(AssetManager::class)) {
                     'url' => jankx_core_asset_url('lib/scrollToSmooth/scrolltosmooth.min.js'),
                     'version' => '2.2.1',
                 ),
-                'tether' => array(
-                    'url' => jankx_core_asset_url('lib/tether/js/tether.js'),
-                    'version' => '1.4.7',
-                ),
-                'tether-drop' => array(
-                    'url' => jankx_core_asset_url('lib/drop/js/drop.js'),
-                    'version' => '1.2.2',
-                    'dependences' => array('tether')
+                'poperjs' => array(
+                    'url' => jankx_core_asset_url('lib/poperjs/poperjs.js'),
+                    'version' => '2.9.1',
                 ),
                 'slideout' => array(
                     'url' => jankx_core_asset_url('lib/slideout/slideout.js'),
