@@ -2,3 +2,4 @@
 node_modules
 /resources/main.js
 .DS_Store
+/package-lock.json
