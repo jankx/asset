@@ -1,4 +1,10 @@
 @media(min-width: 768px) {
+    #mobile-menu {
+        position: relative;
+        background-color: #fff;
+        z-index: 99;
+    }
+
     .default-navigation {
         .navigation {
             width: 100%;
