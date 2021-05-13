@@ -14,7 +14,7 @@
             flex: 1;
         }
 
-        :not(.widget_nav_menu) > div >ul.menu {
+        :not(.widget_nav_menu) > div >ul.menu, .navigation > div.menu >ul {
             display: flex;
             align-items: center;
             > li {
@@ -91,7 +91,7 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     .default-navigation {
-        :not(.widget_nav_menu) > div >ul.menu {
+        :not(.widget_nav_menu) > div >ul.menu, .navigation > div.menu >ul {
             li {
                 &.hide-tablet {
                     display: none;
@@ -109,7 +109,7 @@
 
 @media (min-width: 992px) {
     .default-navigation {
-        :not(.widget_nav_menu) > div >ul.menu {
+        :not(.widget_nav_menu) > div >ul.menu, .navigation > div.menu >ul {
             li {
                 &.hide-desktop {
                     display: none;
@@ -127,7 +127,7 @@
 
 @media(max-width: 767px) {
     .default-navigation {
-        :not(.widget_nav_menu) > div >ul.menu {
+        :not(.widget_nav_menu) > div >ul.menu, .navigation > div.menu >ul {
             li {
                 &.hide-mobile {
                     display: none;
@@ -160,7 +160,7 @@
 
 @media(min-width: 1200px) {
     .default-navigation {
-        :not(.widget_nav_menu) > div >ul.menu {
+        :not(.widget_nav_menu) > div >ul.menu, .navigation > div.menu >ul {
             li {
                 padding: 5px 10px;
             }
