@@ -34,9 +34,6 @@ class Cache
 
     protected static function loadGlobalCss()
     {
-        if (empty(static::$globalCss)) {
-            return;
-        }
         if (!has_action('jankx_asset_generate_global_css_cache')) {
             add_action('jankx_asset_generate_global_css_cache', function ($globalCss) {
                 $globalCssFile = sprintf('%s/global.css', rtrim(JANKX_CACHE_DIR, '/'));
@@ -59,5 +56,12 @@ class Cache
     public static function load()
     {
         static::loadGlobalCss();
+    }
+
+    public static function globalCssIsExists() {
+        return apply_filters(
+            'jankx_asset_global_css_cache_exists',
+            file_exists(sprintf('%s/global.css', rtrim(JANKX_CACHE_DIR, '/')))
+        );
     }
 }
