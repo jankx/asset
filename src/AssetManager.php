@@ -1,14 +1,19 @@
 <?php
 namespace Jankx\Asset;
 
+use Jankx\Asset\Cache;
+
 if (!class_exists(AssetManager::class)) {
     class AssetManager
     {
         protected static $instance;
+
         protected $bucket;
         protected $mainJs;
         protected $mainStylesheet;
         protected $theme;
+
+        const VERSION = '0.8.0';
 
         public static function instance()
         {
@@ -53,6 +58,7 @@ if (!class_exists(AssetManager::class)) {
 
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
             add_action('wp_enqueue_scripts', array($this, 'callScripts'), 55);
+            add_action('wp_enqueue_scripts', array(Cache::class, 'load'), 65);
 
             add_action('wp_head', array($this, 'registerHeaderStyles'), 30);
             add_action('wp_head', array($this, 'registerHeaderScripts'), 30);

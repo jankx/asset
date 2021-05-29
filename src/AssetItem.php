@@ -1,6 +1,9 @@
 <?php
 namespace Jankx\Asset;
 
+use Jankx\Template\Template;
+use Jankx\Asset\Engine;
+
 abstract class AssetItem implements AssetInterface
 {
     protected $hasDependences = false;
@@ -9,6 +12,8 @@ abstract class AssetItem implements AssetInterface
     public $url = '';
     public $version = null;
     public $preload = false;
+
+    protected static $engine;
 
     public function __construct($id, $url, $dependences, $version, $preload)
     {
@@ -31,5 +36,31 @@ abstract class AssetItem implements AssetInterface
     public function getDependences()
     {
         return $this->dependences;
+    }
+
+    public static function getEngine()
+    {
+        if (is_null(self::$engine)) {
+            $engine = Engine::create('jankx_asset');
+
+            $engine->setDefaultTemplateDir(sprintf('%s/assets', dirname(JANKX_FRAMEWORK_FILE_LOADER)));
+            $engine->setDirectoryInTheme('assets');
+            $engine->setupEnvironment();
+
+            do_action_ref_array("jankx_template_engine_{$engine->getName()}_init", array(
+                &$engine
+            ));
+
+            static::$engine = &$engine;
+        }
+        return self::$engine;
+    }
+
+    public static function loadCustomize($file, $data = array(), $echo = false)
+    {
+        return call_user_func_array(
+            array(self::getEngine(), 'render'),
+            array($file, $data, $echo)
+        );
     }
 }
