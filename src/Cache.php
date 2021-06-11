@@ -50,7 +50,7 @@ class Cache
                     'jankx-css-global',
                     sprintf('%s/global.css', rtrim(JANKX_CACHE_DIR_URL, '/')),
                     array(),
-                    AssetManager::VERSION
+                    filemtime($globalCssFile)
                 );
             });
         }
