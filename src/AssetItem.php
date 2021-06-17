@@ -56,11 +56,11 @@ abstract class AssetItem implements AssetInterface
         return self::$engine;
     }
 
-    public static function loadCustomize($file, $data = array(), $echo = false)
+    public static function loadCustomize($file, $data = array())
     {
         return call_user_func_array(
             array(self::getEngine(), 'render'),
-            array($file, $data, $echo)
+            array($file, $data, false)
         );
     }
 }
