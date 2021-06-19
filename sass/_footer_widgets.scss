@@ -1,6 +1,8 @@
 .widgets-area-inner {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+
     ul {
         li {
             &+li {
