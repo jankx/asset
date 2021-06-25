@@ -3,7 +3,6 @@ namespace Jankx\Asset;
 
 class CssItem extends AssetItem
 {
-
     protected $isRegistered = false;
     public $media           = 'all';
     public $preload         = false;
