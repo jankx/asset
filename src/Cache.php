@@ -54,7 +54,13 @@ class Cache
                 );
             });
         }
-        do_action('jankx_asset_generate_global_css_cache', static::$globalCss);
+        do_action(
+            'jankx_asset_generate_global_css_cache',
+            apply_filters(
+                'jankx/asset/cache/global_css',
+                static::$globalCss
+            )
+        );
     }
 
     public static function load()
