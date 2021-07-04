@@ -4,26 +4,6 @@ function asset()
     return \Jankx\Asset\Bucket::instance();
 }
 
-function jankx_core_asset_url($path)
-{
-    $abspath = constant('ABSPATH');
-    $assetDirectory = dirname(__FILE__);
-    if (PHP_OS === 'WINNT') {
-        $abspath = str_replace('\\', '/', $abspath);
-        $assetDirectory = str_replace('\\', '/', $assetDirectory);
-    }
-    return sprintf(
-        '%s/resources/%s',
-        str_replace($abspath, site_url('/'), $assetDirectory),
-        $path
-    );
-}
-
-function jankx_core_asset_directory()
-{
-    return dirname(__FILE__);
-}
-
 function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
 {
     return call_user_func(

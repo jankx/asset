@@ -9,11 +9,6 @@ if (!class_exists(AssetManager::class)) {
         protected static $instance;
 
         protected $bucket;
-        protected $mainJs;
-        protected $mainStylesheet;
-        protected $theme;
-
-        const VERSION = '0.8.1';
 
         public static function instance()
         {
@@ -23,10 +18,8 @@ if (!class_exists(AssetManager::class)) {
             return self::$instance;
         }
 
-        public function __construct()
+        private function __construct()
         {
-            $this->theme = wp_get_theme();
-
             $this->loadHelpers();
             $this->createBucket();
             $this->initHooks();
@@ -54,8 +47,6 @@ if (!class_exists(AssetManager::class)) {
         {
             add_action('init', array($this, 'registerDefaultAssets'), 5);
 
-            add_action('wp_enqueue_scripts', array($this, 'registerThemeAssets'));
-
             add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 35);
             add_action('wp_enqueue_scripts', array($this, 'callScripts'), 55);
             add_action('wp_enqueue_scripts', array(Cache::class, 'load'), 65);
@@ -69,36 +60,7 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerDefaultAssets()
         {
-            /**
-             * Register default CSS resource to Jankx Asset Manager
-             */
-            $jankxBaseData = get_file_data(
-                sprintf('%s/resources/css/jankx.css', jankx_core_asset_directory()),
-                array('version' => 'Version')
-            );
-            $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
-                'jankx-base' => array(
-                    'url' => jankx_core_asset_url('css/jankx.css'),
-                    'version' => $jankxBaseData['version'],
-                ),
-                'hover' => array(
-                    'url' => jankx_core_asset_url('lib/hover/css/hover.css'),
-                    'version' => '2.3.2',
-                ),
-                'choices' => array(
-                    'url' => jankx_core_asset_url('lib/Choices/styles/base.css'),
-                    'version' => '9.0.1',
-                ),
-                'splide' => array(
-                    'url' => jankx_core_asset_url('lib/splide/css/splide-core.min.css'),
-                    'version' => '2.4.12',
-                ),
-                'splide-theme' => array(
-                    'url' => jankx_core_asset_url('lib/splide/css/themes/splide-default.min.css'),
-                    'dependences' => array('splide'),
-                    'version' => '2.4.12',
-                )
-            ));
+            $defaultAssetCSS = apply_filters('jankx_default_css_resources', array());
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
                     'url' => '',
@@ -118,44 +80,7 @@ if (!class_exists(AssetManager::class)) {
             /**
              * Register default JS resources to Jankx Asset Manager
              */
-            $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
-                'modernizr' => array(
-                    'url' => jankx_core_asset_url('lib/modernizr-3.7.1.min.js'),
-                    'version' => '3.7.1',
-                ),
-                'scroll-to-smooth' => array(
-                    'url' => jankx_core_asset_url('lib/scrollToSmooth/scrolltosmooth.min.js'),
-                    'version' => '2.2.1',
-                ),
-                'poperjs' => array(
-                    'url' => jankx_core_asset_url('lib/poperjs/poperjs.js'),
-                    'version' => '2.9.1',
-                ),
-                'slideout' => array(
-                    'url' => jankx_core_asset_url('lib/slideout/slideout.js'),
-                    'version' => '1.0.1',
-                ),
-                'splide' => array(
-                    'url' => jankx_core_asset_url('lib/splide/js/splide.js'),
-                    'version' => '2.4.12',
-                ),
-                'micromodal' => array(
-                    'url' => jankx_core_asset_url('lib/micromodal/micromodal.js'),
-                    'version' => '0.4.6',
-                ),
-                'choices' => array(
-                    'url' => jankx_core_asset_url('lib/Choices/scripts/choices.js'),
-                    'version' => '9.0.1',
-                ),
-                'fslightbox-basic' => array(
-                    'url' => jankx_core_asset_url('lib/fslightbox-basic/fslightbox.js'),
-                    'version' => '3.2.3',
-                ),
-                'sharing' => array(
-                    'url' => jankx_core_asset_url('lib/vanilla-sharing/vanilla-sharing.umd.js'),
-                    'version' => '6.0.5',
-                )
-            ));
+            $defaultAssetJs = apply_filters('jankx_default_js_resources', array());
 
             foreach ($defaultAssetJs as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
@@ -177,74 +102,6 @@ if (!class_exists(AssetManager::class)) {
              * Unset the life default assets after register to Jankx Asset Manager
              */
             unset($defaultAssetCSS, $defaultAssetJs, $handler, $asset);
-
-            if (current_theme_supports('render_js_template')) {
-                $templateJsFunc = file_get_contents(sprintf(
-                    '%s/resources/lib/JavaScript-Templates.js',
-                    jankx_core_asset_directory()
-                ));
-
-                init_script(sprintf(
-                    '<script>%s</script>',
-                    $templateJsFunc
-                ), true);
-            }
-        }
-
-        protected function callDefaultAssets()
-        {
-            css($this->mainStylesheet);
-
-            if (!empty($this->mainJs)) {
-                js($this->mainJs);
-            }
-        }
-
-        public function registerThemeAssets()
-        {
-            $jankxCssDeps = array('jankx-base');
-            $stylesheetName = $this->theme->get_stylesheet();
-
-            if (is_child_theme()) {
-                $stylesheetUri = sprintf('%s/style.css', get_template_directory_uri());
-                $jankxTemplate = wp_get_theme($this->theme->get_template());
-                $jankxCssDeps[] = $jankxTemplate->get_stylesheet();
-                css(
-                    $jankxTemplate->get_stylesheet(),
-                    $stylesheetUri,
-                    array(),
-                    $jankxTemplate->version
-                );
-            }
-
-            css(
-                $stylesheetName,
-                get_stylesheet_uri(),
-                apply_filters('jankx_asset_css_dependences', $jankxCssDeps, $stylesheetName),
-                $this->theme->version
-            );
-
-            $assetDirectory = sprintf('%s/assets', realpath(dirname(JANKX_FRAMEWORK_FILE_LOADER) . '/../../..'));
-            $appJsVer = $this->theme->version;
-            $appJsName = '';
-            if (file_exists($appjs = sprintf('%s/js/app.js', $assetDirectory))) {
-                $appJsName = 'app';
-                $abspath = constant('ABSPATH');
-                if (PHP_OS === 'WINNT') {
-                    $abspath = str_replace('\\', '/', $abspath);
-                    $appjs = str_replace('\\', '/', $appjs);
-                }
-                js(
-                    $appJsName,
-                    str_replace($abspath, site_url('/'), $appjs),
-                    apply_filters('jankx_asset_js_dependences', array('scroll-to-smooth')),
-                    $appJsVer,
-                    true
-                );
-            }
-
-            $this->mainStylesheet = apply_filters('jankx_main_stylesheet', $stylesheetName, $jankxCssDeps);
-            $this->mainJs         = apply_filters('jankx_main_js', $appJsName);
         }
 
         public function registerStylesheets($dependences)
@@ -287,7 +144,6 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerScripts()
         {
-            $this->callDefaultAssets();
             $this->registerStylesheets(
                 $this->bucket->getStylesheets()
             );
