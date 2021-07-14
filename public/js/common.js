@@ -65,7 +65,7 @@ function jankx_ajax(url, method = 'GET', body = {}, options = {}, headers = {}) 
     jankx_xhr.onreadystatechange = function () {
         // In local files, status is 0 upon success in Mozilla Firefox
         if(jankx_xhr.readyState === XMLHttpRequest.DONE) {
-            options.complete();
+            options.complete(jankx_xhr);
         }
     }
 
