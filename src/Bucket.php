@@ -33,11 +33,15 @@ class Bucket
         } else {
             // Log CSS error
         }
+
+        return $this;
     }
 
     public function style($cssContent, $media = 'all')
     {
         $this->headerStyles[$media][] = $cssContent;
+
+        return $this;
     }
 
     public function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
@@ -50,6 +54,8 @@ class Bucket
         } else {
             // Log JS error
         }
+
+        return $this;
     }
 
     public function script($jsContent, $isHeaderScript = false)
@@ -59,6 +65,8 @@ class Bucket
         } else {
             $this->initFooterScripts[] = $jsContent;
         }
+
+        return $this;
     }
 
     public function executeScript($jsContent, $autoWrapByScriptTag = false)
@@ -67,6 +75,8 @@ class Bucket
             $jsContent = '<script>' . $jsContent . '</script>';
         }
         $this->executeFooterScripts[] = $jsContent;
+
+        return $this;
     }
 
     public function getHeaderScripts()
