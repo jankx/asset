@@ -6,6 +6,8 @@ use Jankx\Asset\Cache;
 if (!class_exists(AssetManager::class)) {
     class AssetManager
     {
+        const ASSET_LIB_VER = '1.0.0.0';
+
         protected static $instance;
 
         protected $bucket;
@@ -20,14 +22,18 @@ if (!class_exists(AssetManager::class)) {
 
         private function __construct()
         {
-            $this->loadHelpers();
+            $this->bootstrap();
             $this->createBucket();
             $this->initHooks();
         }
 
-        public function loadHelpers()
+        public function bootstrap()
         {
-            require_once realpath(dirname(__FILE__) . '/../helpers.php');
+            if (!defined('JANKX_ASSET_ROOT_DIR')) {
+                define('JANKX_ASSET_ROOT_DIR', dirname(__DIR__));
+            }
+
+            require_once JANKX_ASSET_ROOT_DIR . '/helpers.php';
         }
 
         protected function createBucket()
@@ -80,7 +86,12 @@ if (!class_exists(AssetManager::class)) {
             /**
              * Register default JS resources to Jankx Asset Manager
              */
-            $defaultAssetJs = apply_filters('jankx_default_js_resources', array());
+            $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
+                'jankx-common' => array(
+                    'url' => jankx_get_path_url(sprintf('%s/public/js/common.js', JANKX_ASSET_ROOT_DIR)),
+                    'version' => static::ASSET_LIB_VER,
+                ),
+            ));
 
             foreach ($defaultAssetJs as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
