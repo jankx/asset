@@ -4,6 +4,7 @@ namespace Jankx\Asset;
 class Bucket
 {
     protected static $instance;
+    protected static $lastJsHandle;
 
     public $headerScripts = [];
     public $headerStyles = [];
@@ -20,16 +21,19 @@ class Bucket
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
+
+        // Reset lastJsHandle;
+        static::$lastJsHandle = '';
         return self::$instance;
     }
 
-    public function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
+    public function css($handle, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
     {
         if (!empty($cssUrl)) {
-            $cssItem = new CssItem($handler, $cssUrl, $dependences, $version, $media, $preload);
-            $this->stylesheets[$handler] = $cssItem;
-        } elseif ($this->isRegistered($handler)) {
-            $this->enqueueCSS[] = $handler;
+            $cssItem = new CssItem($handle, $cssUrl, $dependences, $version, $media, $preload);
+            $this->stylesheets[$handle] = $cssItem;
+        } elseif ($this->isRegistered($handle)) {
+            $this->enqueueCSS[] = $handle;
         } else {
             // Log CSS error
         }
@@ -44,13 +48,16 @@ class Bucket
         return $this;
     }
 
-    public function js($handler, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
+    public function js($handle, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
     {
         if (!empty($jsUrl)) {
-            $jsItem = new JsItem($handler, $jsUrl, $dependences, $version, $isFooterScript, $preload);
-            $this->footerScripts[$handler] = $jsItem;
-        } elseif ($this->isRegistered($handler, false)) {
-            $this->enqueueJS[] = $handler;
+            $jsItem = new JsItem($handle, $jsUrl, $dependences, $version, $isFooterScript, $preload);
+            $this->footerScripts[$handle] = $jsItem;
+
+            static::$lastJsHandle = $handle;
+        } elseif ($this->isRegistered($handle, false)) {
+            $this->enqueueJS[] = $handle;
+            static::$lastJsHandle = $handle;
         } else {
             // Log JS error
         }
@@ -94,17 +101,17 @@ class Bucket
         return $this->stylesheets;
     }
 
-    public function getStylesheet($handler)
+    public function getStylesheet($handle)
     {
-        if (isset($this->stylesheets[$handler])) {
-            return $this->stylesheets[$handler];
+        if (isset($this->stylesheets[$handle])) {
+            return $this->stylesheets[$handle];
         }
     }
 
-    public function getJavascript($handler)
+    public function getJavascript($handle)
     {
-        if (isset($this->footerScripts[$handler])) {
-            return $this->footerScripts[$handler];
+        if (isset($this->footerScripts[$handle])) {
+            return $this->footerScripts[$handle];
         }
     }
 
@@ -133,15 +140,29 @@ class Bucket
         return $this->enqueueJS;
     }
 
-    public function isRegistered($handler, $isStylesheet = true)
+    public function isRegistered($handle, $isStylesheet = true)
     {
         /**
-         * Get all handler keys
+         * Get all handle keys
          */
-        $handlers = $isStylesheet ?
+        $handles = $isStylesheet ?
             array_keys($this->stylesheets) :
             array_keys($this->footerScripts);
 
-        return in_array($handler, $handlers, true);
+        return in_array($handle, $handles, true);
+    }
+
+    public function localize($object_name, $i10n, $handle = null) {
+        if (is_null($handle)) {
+            if (empty(static::$lastJsHandle)) {
+                throw new \Excecption('JS handle must be have a value');
+            }
+            $handle = static::$lastJsHandle;
+        }
+
+        $jsItem = $this->getJavascript($handle);
+        if ($jsItem) {
+            $jsItem->addLocalizeScript($object_name, $i10n);
+        }
     }
 }

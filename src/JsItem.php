@@ -5,6 +5,8 @@ class JsItem extends AssetItem
 {
 
     protected $isRegistered = false;
+    protected $localizeScripts = array();
+
     public $isFooterScript  = true;
     public $preload         = false;
 
@@ -40,13 +42,21 @@ class JsItem extends AssetItem
             add_filter('script_loader_tag', array($this, 'createPreloadScript'), 10, 3);
         }
 
-        return wp_register_script(
+        $status = wp_register_script(
             $this->id,
             $this->url,
             $this->dependences,
             $this->version,
             $this->isFooterScript
         );
+        if (!$status) {
+            error_log(sprintf('Register script %s is error', $this->id));
+            return;
+        }
+
+        foreach($this->localizeScripts as $object_name => $i10n) {
+            wp_localize_script($this->id, $object_name, $i10n);
+        }
     }
 
     public function createPreloadScript($tag, $handle, $src)
@@ -64,5 +74,9 @@ class JsItem extends AssetItem
             remove_filter('script_loader_tag', array($this, 'createPreloadScript'), 10);
         }
         return $tag;
+    }
+
+    public function addLocalizeScript($object_name, $i10n) {
+        $this->localizeScripts[$object_name] = $i10n;
     }
 }

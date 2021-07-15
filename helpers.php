@@ -79,3 +79,16 @@ if (!function_exists('is_registered_asset')) {
         );
     }
 }
+
+
+if (!function_exists('localize_script')) {
+    function localize_script($handler, $object_name, $i10n)
+    {
+        return call_user_func(
+            array(asset(), 'localize'),
+            $handler,
+            $object_name,
+            $i10n
+        );
+    }
+}
