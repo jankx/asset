@@ -86,6 +86,11 @@ HTMLElement.prototype.find = function(selector) {
 HTMLElement.prototype.appendHTML = function(html) {
     this.innerHTML += html;
 }
+
+HTMLElement.prototype.html = function(html) {
+    this.innerHTML = html;
+}
+
 HTMLElement.prototype.removeClass = function(clsName) {
     // For modern browers
     if (this.classList) {

@@ -6,7 +6,7 @@ use Jankx\Asset\Cache;
 if (!class_exists(AssetManager::class)) {
     class AssetManager
     {
-        const ASSET_LIB_VER = '1.0.0.18';
+        const ASSET_LIB_VER = '1.0.0.21';
 
         protected static $instance;
 
