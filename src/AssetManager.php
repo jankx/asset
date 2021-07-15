@@ -142,7 +142,7 @@ if (!class_exists(AssetManager::class)) {
         {
             foreach ((array)$dependences as $handler => $jsItem) {
                 if (!$jsItem instanceof AssetItem) {
-                    $jsItem = $this->bucket->getStylesheet($jsItem);
+                    $jsItem = $this->bucket->getJavascript($jsItem);
 
                     if (empty($jsItem)) {
                         continue;
