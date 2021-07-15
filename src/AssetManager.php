@@ -87,6 +87,10 @@ if (!class_exists(AssetManager::class)) {
              * Register default JS resources to Jankx Asset Manager
              */
             $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
+                'lodash' => array(
+                    'url' => jankx_get_path_url(sprintf('%s/public/libs/lodash/core.js', JANKX_ASSET_ROOT_DIR)),
+                    'version' => '4.17.15',
+                ),
                 'jankx-common' => array(
                     'url' => jankx_get_path_url(sprintf('%s/public/js/common.js', JANKX_ASSET_ROOT_DIR)),
                     'version' => static::ASSET_LIB_VER,
