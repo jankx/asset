@@ -123,3 +123,13 @@ HTMLElement.prototype.addClass = function(clsName) {
         }
     }
 }
+
+HTMLElement.prototype.hasClass = function(clsName) {
+    if (this.classList) {
+        return this.classList.contains(clsName);
+    }
+
+    var classes = this.className.split(" ");
+    return classes.indexOf(clsName) >= 0;
+}
+
