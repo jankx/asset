@@ -57,7 +57,6 @@ function jankx_ajax(url, method = 'GET', body = {}, options = {}, headers = {}) 
 
     return jankx_xhr;
 }
-window.ajax = jankx_ajax;
 
 function jankx_find_element_parent(element, selector) {
     var e = element, s = selector;
