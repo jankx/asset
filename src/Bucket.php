@@ -152,7 +152,8 @@ class Bucket
         return in_array($handle, $handles, true);
     }
 
-    public function localize($object_name, $i10n, $handle = null) {
+    public function localize($object_name, $i10n, $handle = null)
+    {
         if (is_null($handle)) {
             if (empty(static::$lastJsHandle)) {
                 throw new \Excecption('JS handle must be have a value');

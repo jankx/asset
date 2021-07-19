@@ -54,7 +54,7 @@ class JsItem extends AssetItem
             return;
         }
 
-        foreach($this->localizeScripts as $object_name => $i10n) {
+        foreach ($this->localizeScripts as $object_name => $i10n) {
             wp_localize_script($this->id, $object_name, $i10n);
         }
     }
@@ -76,7 +76,8 @@ class JsItem extends AssetItem
         return $tag;
     }
 
-    public function addLocalizeScript($object_name, $i10n) {
+    public function addLocalizeScript($object_name, $i10n)
+    {
         $this->localizeScripts[$object_name] = $i10n;
     }
 }

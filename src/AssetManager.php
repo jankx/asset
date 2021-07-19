@@ -127,7 +127,8 @@ if (!class_exists(AssetManager::class)) {
                 }
 
                 if ($cssItem->hasDependences()) {
-                    $this->registerStylesheets($cssItem->getDependences());
+                    $deps = $cssItem->getDependences();
+                    $this->registerStylesheets($deps);
                 }
 
                 $cssItem->register();
