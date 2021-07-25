@@ -9,6 +9,7 @@ if (!class_exists(AssetManager::class)) {
         const ASSET_LIB_VER = '1.0.0.23';
 
         protected static $instance;
+        protected static $assetDirUrl;
 
         protected $bucket;
 
@@ -88,7 +89,7 @@ if (!class_exists(AssetManager::class)) {
              */
             $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
                 'jankx-common' => array(
-                    'url' => jankx_get_path_url(sprintf('%s/public/js/common.js', JANKX_ASSET_ROOT_DIR)),
+                    'url' => static::get_asset_url('public/js/common.js'),
                     'version' => static::ASSET_LIB_VER,
                 ),
             ));
@@ -237,6 +238,13 @@ if (!class_exists(AssetManager::class)) {
                 $jsScript .= $script . PHP_EOL;
             }
             echo $jsScript;
+        }
+
+        public static function get_asset_url($path = '') {
+            if (is_null(static::$assetDirUrl)) {
+                static::$assetDirUrl = jankx_get_path_url(JANKX_ASSET_ROOT_DIR);
+            }
+            return sprintf('%s/%s', static::$assetDirUrl, $path);
         }
     }
 }
