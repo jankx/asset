@@ -240,7 +240,8 @@ if (!class_exists(AssetManager::class)) {
             echo $jsScript;
         }
 
-        public static function get_asset_url($path = '') {
+        public static function get_asset_url($path = '')
+        {
             if (is_null(static::$assetDirUrl)) {
                 static::$assetDirUrl = jankx_get_path_url(JANKX_ASSET_ROOT_DIR);
             }

@@ -4,7 +4,8 @@ namespace Jankx\Asset;
 class Bucket
 {
     protected static $instance;
-    protected static $lastJsHandle;
+    protected static $lastHandle;
+    protected static $lastHandleIsCss;
 
     public $headerScripts = [];
     public $headerStyles = [];
@@ -22,8 +23,8 @@ class Bucket
             self::$instance = new self();
         }
 
-        // Reset lastJsHandle;
-        static::$lastJsHandle = '';
+        // Reset lastHandle;
+        static::$lastHandle = '';
         return self::$instance;
     }
 
@@ -32,11 +33,13 @@ class Bucket
         if (!empty($cssUrl)) {
             $cssItem = new CssItem($handle, $cssUrl, $dependences, $version, $media, $preload);
             $this->stylesheets[$handle] = $cssItem;
+            static::$lastHandle = $handle;
         } elseif ($this->isRegistered($handle)) {
             $this->enqueueCSS[] = $handle;
         } else {
             // Log CSS error
         }
+        static::$lastHandleIsCss = true;
 
         return $this;
     }
@@ -54,13 +57,13 @@ class Bucket
             $jsItem = new JsItem($handle, $jsUrl, $dependences, $version, $isFooterScript, $preload);
             $this->footerScripts[$handle] = $jsItem;
 
-            static::$lastJsHandle = $handle;
+            static::$lastHandle = $handle;
         } elseif ($this->isRegistered($handle, false)) {
             $this->enqueueJS[] = $handle;
-            static::$lastJsHandle = $handle;
         } else {
             // Log JS error
         }
+        static::$lastHandleIsCss = false;
 
         return $this;
     }
@@ -155,15 +158,32 @@ class Bucket
     public function localize($object_name, $i10n, $handle = null)
     {
         if (is_null($handle)) {
-            if (empty(static::$lastJsHandle)) {
+            if (empty(static::$lastHandle)) {
                 throw new \Excecption('JS handle must be have a value');
             }
-            $handle = static::$lastJsHandle;
+            $handle = static::$lastHandle;
         }
 
         $jsItem = $this->getJavascript($handle);
         if ($jsItem) {
             $jsItem->addLocalizeScript($object_name, $i10n);
         }
+    }
+
+    public function enqueue()
+    {
+        if (!static::$lastHandle) {
+            return;
+        }
+
+        if (static::$lastHandleIsCss) {
+            array_push($this->enqueueCSS, static::$lastHandle);
+        } else {
+            array_push($this->enqueueJS, static::$lastHandle);
+        }
+        static::$lastHandle = null;
+        static::$lastHandleIsCss = null;
+
+        return $this;
     }
 }
