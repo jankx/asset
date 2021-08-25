@@ -168,6 +168,8 @@ class Bucket
         if ($jsItem) {
             $jsItem->addLocalizeScript($object_name, $i10n);
         }
+
+        return $this;
     }
 
     public function enqueue()
