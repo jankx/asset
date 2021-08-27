@@ -12,6 +12,13 @@ function jankx_create_form_data(body) {
     return formData;
 }
 
+function camelize(str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+        if (+match === 0) return "";
+        return index === 0 ? match.toLowerCase() : match.toUpperCase();
+    });
+}
+
 function jankx_ajax(url, method = 'GET', body = {}, options = {}, headers = {}) {
     var jankx_xhr = window.XMLHttpRequest
         ? new XMLHttpRequest() :
