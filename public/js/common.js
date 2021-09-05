@@ -139,3 +139,10 @@ HTMLElement.prototype.hasClass = function(clsName) {
     return classes.indexOf(clsName) >= 0;
 }
 
+HTMLElement.prototype.toggleClass = function(clsName) {
+    if (this.hasClass(clsName)) {
+        return this.removeClass(clsName);
+    }
+    return this.addClass(clsName);
+}
+
