@@ -17,7 +17,7 @@ wp_enqueue_script('jankx-global-filter');
 // CSS
 wp_register_style('jankx-global-filter', $this->asset_url('css/global-filter.css'), array('choices'), static::VERSION);
 wp_enqueue_style('jankx-global-filter');
-``
+```
 
 # Ajax assets syntax
 
