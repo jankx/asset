@@ -19,7 +19,7 @@ wp_register_style('jankx-global-filter', $this->asset_url('css/global-filter.css
 wp_enqueue_style('jankx-global-filter');
 ```
 
-# Ajax assets syntax
+# Jankx assets syntax
 
 ```
 js(
