@@ -68,12 +68,10 @@ if (!class_exists(AssetManager::class)) {
         public function registerDefaultAssets()
         {
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
-                array(
-                    'glider' => array(
-                        'url' => static::get_asset_url('public/vendor/Glider/glider.css'),
-                        'version' => '1.7.4',
-                    ),
-                )
+                'glider' => array(
+                    'url' => static::get_asset_url('public/vendor/Glider/glider.css'),
+                    'version' => '1.7.4',
+                ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(

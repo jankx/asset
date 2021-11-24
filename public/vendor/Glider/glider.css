@@ -108,6 +108,14 @@
   height: 12px;
   margin: 7px;
 }
+.glider-thumbnail {
+  max-width: 100px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.glider-thumbnail img {
+  max-width: 100%;
+}
 .glider-dot:hover,
 .glider-dot:focus,
 .glider-dot.active {
