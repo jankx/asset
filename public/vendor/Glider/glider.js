@@ -47,6 +47,7 @@
         slidesToShow: 1,
         resizeLock: true,
         duration: 0.5,
+        cleanDots: true,
         // easeInQuad
         easing: function (x, t, b, c, d) {
           return c * (t /= d) * t + b
@@ -204,15 +205,20 @@
     } else _.dots = _.opt.dots
     if (!_.dots) return
 
-    _.dots.innerHTML = ''
+    if (_.opt.cleanDots) {
+      _.dots.innerHTML = '';
+    }
     _.dots.classList.add('glider-dots')
 
     for (var i = 0; i < Math.ceil(_.slides.length / _.opt.slidesToShow); ++i) {
-      var dot = document.createElement('button')
+      var dot = _.dots.querySelector(`[data-index="${i}"]`)
+      if (!dot) {
+        dot = document.createElement('button');
+        dot.className = 'glider-dot ' + (i ? '' : 'active')
+      }
       dot.dataset.index = i
       dot.setAttribute('aria-label', 'Page ' + (i + 1))
       dot.setAttribute('role', 'tab')
-      dot.className = 'glider-dot ' + (i ? '' : 'active')
       _.event(dot, 'add', {
         click: _.scrollItem.bind(_, i, true)
       })
