@@ -97,6 +97,10 @@ if (!class_exists(AssetManager::class)) {
                     'url' => static::get_asset_url('public/vendor/Glider/glider.js'),
                     'version' => '1.7.4',
                 ),
+                'glide' => array(
+                    'url' => static::get_asset_url('public/vendor/glide-3.5.1/umd.js'),
+                    'version' => '3.5.1',
+                ),
                 'jankx-common' => array(
                     'url' => static::get_asset_url('public/js/common.js'),
                     'version' => static::ASSET_LIB_VER,
