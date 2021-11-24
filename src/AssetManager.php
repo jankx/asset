@@ -67,7 +67,14 @@ if (!class_exists(AssetManager::class)) {
 
         public function registerDefaultAssets()
         {
-            $defaultAssetCSS = apply_filters('jankx_default_css_resources', array());
+            $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
+                array(
+                    'glider' => array(
+                        'url' => static::get_asset_url('public/vendor/Glider/glider.css'),
+                        'version' => '1.7.4',
+                    ),
+                )
+            ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
                     'url' => '',
@@ -88,6 +95,10 @@ if (!class_exists(AssetManager::class)) {
              * Register default JS resources to Jankx Asset Manager
              */
             $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
+                'glider' => array(
+                    'url' => static::get_asset_url('public/vendor/Glider/glider.js'),
+                    'version' => '1.7.4',
+                ),
                 'jankx-common' => array(
                     'url' => static::get_asset_url('public/js/common.js'),
                     'version' => static::ASSET_LIB_VER,
