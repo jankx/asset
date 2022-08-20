@@ -1,6 +1,8 @@
 <?php
 namespace Jankx\Asset;
 
+use Exception;
+
 class Bucket
 {
     protected static $instance;
@@ -17,6 +19,9 @@ class Bucket
     public $enqueueCSS = [];
     public $enqueueJS = [];
 
+    /**
+     * @return static
+     */
     public static function instance()
     {
         if (is_null(self::$instance)) {
@@ -28,6 +33,9 @@ class Bucket
         return self::$instance;
     }
 
+    /**
+     * @return self
+     */
     public function css($handle, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
     {
         if (!empty($cssUrl)) {
@@ -51,6 +59,9 @@ class Bucket
         return $this;
     }
 
+    /**
+     * @return self
+     */
     public function js($handle, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
     {
         if (!empty($jsUrl)) {
@@ -143,6 +154,9 @@ class Bucket
         return $this->enqueueJS;
     }
 
+    /**
+     * @return boolean
+     */
     public function isRegistered($handle, $isStylesheet = true)
     {
         /**
@@ -155,11 +169,14 @@ class Bucket
         return in_array($handle, $handles, true);
     }
 
+    /**
+     * @return self
+     */
     public function localize($object_name, $i10n, $handle = null)
     {
         if (is_null($handle)) {
             if (empty(static::$lastHandle)) {
-                throw new \Excecption('JS handle must be have a value');
+                throw new Exception('JS handle must be have a value');
             }
             $handle = static::$lastHandle;
         }
@@ -172,6 +189,9 @@ class Bucket
         return $this;
     }
 
+    /**
+     * @return self
+     */
     public function enqueue()
     {
         if (!static::$lastHandle) {
