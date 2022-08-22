@@ -7,6 +7,9 @@ if (!function_exists('asset')) {
 }
 
 if (!function_exists('css')) {
+    /**
+     * @return Jankx\Asset\Bucket;
+     */
     function css($handler, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
     {
         return call_user_func(
