@@ -252,5 +252,13 @@ if (!class_exists(AssetManager::class)) {
             }
             return sprintf('%s/%s', static::$assetDirUrl, $path);
         }
+
+        public static function isLoadMinifyAsset()
+        {
+            if (defined('JANKX_LOAD_COMPRESSED_ASSET')) {
+                return boolval(constant('JANKX_LOAD_COMPRESSED_ASSET'));
+            }
+            return !defined('WP_DEBUG') || boolval(constant('WP_DEBUG'));
+        }
     }
 }

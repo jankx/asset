@@ -44,7 +44,7 @@ class JsItem extends AssetItem
 
         $status = wp_register_script(
             $this->id,
-            $this->url,
+            $this->getUrl(),
             $this->dependences,
             $this->version,
             $this->isFooterScript

@@ -40,7 +40,7 @@ class CssItem extends AssetItem
         }
         return wp_register_style(
             $this->id,
-            $this->url,
+            $this->getUrl(),
             $this->dependences,
             $this->version,
             $this->media

@@ -60,6 +60,8 @@ class Bucket
     }
 
     /**
+     * @param string $handle the handler ID
+     *
      * @return self
      */
     public function js($handle, $jsUrl = null, $dependences = [], $version = null, $isFooterScript = true, $preload = false)
