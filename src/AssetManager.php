@@ -258,7 +258,7 @@ if (!class_exists(AssetManager::class)) {
             if (defined('JANKX_LOAD_COMPRESSED_ASSET')) {
                 return boolval(constant('JANKX_LOAD_COMPRESSED_ASSET'));
             }
-            return !defined('WP_DEBUG') || boolval(constant('WP_DEBUG'));
+            return !defined('WP_DEBUG') || boolval(constant('WP_DEBUG')) === false;
         }
     }
 }
