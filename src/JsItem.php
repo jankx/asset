@@ -1,9 +1,9 @@
 <?php
+
 namespace Jankx\Asset;
 
 class JsItem extends AssetItem
 {
-
     protected $isRegistered = false;
     protected $localizeScripts = array();
 

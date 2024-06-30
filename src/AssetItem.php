@@ -1,4 +1,5 @@
 <?php
+
 namespace Jankx\Asset;
 
 abstract class AssetItem implements AssetInterface
