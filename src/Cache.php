@@ -1,7 +1,6 @@
 <?php
-namespace Jankx\Asset;
 
-use Jankx\Asset\AssetManager;
+namespace Jankx\Asset;
 
 class Cache
 {
@@ -34,7 +33,7 @@ class Cache
 
     protected static function loadGlobalCss()
     {
-        if (!has_action('jankx_asset_generate_global_css_cache')) {
+        if (!has_action('jankx_asset_generate_global_css_cache') && defined('JANKX_CACHE_DIR_URL')) {
             add_action('jankx_asset_generate_global_css_cache', function ($globalCss) {
                 $cacheDir = rtrim(JANKX_CACHE_DIR, '/');
                 $globalCssFile = sprintf('%s/global.css', $cacheDir);
@@ -72,7 +71,7 @@ class Cache
     {
         return apply_filters(
             'jankx_asset_global_css_cache_exists',
-            file_exists(sprintf('%s/global.css', rtrim(JANKX_CACHE_DIR, '/')))
+            defined('JANKX_CACHE_DIR') && file_exists(sprintf('%s/global.css', rtrim(JANKX_CACHE_DIR, '/')))
         );
     }
 }
