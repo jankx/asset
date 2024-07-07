@@ -155,3 +155,27 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
         }
     };
 }
+
+
+const stickyHeader = document.querySelector('.jankx-site-header.sticky-header');
+
+if (stickyHeader) {
+    window.onscroll = function() {jankxStickyHeader()};
+    var sticky = stickyHeader.offsetTop + stickyHeader.clientHeight + 100;
+
+    function jankxStickyHeader() {
+        if (window.scrollY >= sticky) {
+            stickyHeader.classList.add('sticky')
+            document.querySelector('html').classList.add('pin-menu');
+            if (document.querySelector('body.admin-bar')) {
+                document.querySelector('html').classList.add('has-admin-bar');
+            }
+        } else {
+            stickyHeader.classList.remove('sticky');
+            document.querySelector('html').classList.remove('pin-menu');
+            if (document.querySelector('body.admin-bar')) {
+                document.querySelector('html').classList.remove('has-admin-bar');
+            }
+        }
+    }
+}
