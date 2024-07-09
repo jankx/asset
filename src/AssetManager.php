@@ -69,6 +69,13 @@ if (!class_exists(AssetManager::class)) {
         public function registerDefaultAssets()
         {
             $defaultAssetCSS = apply_filters('jankx_default_css_resources', array(
+                'flickity' => array(
+                    'url' => [
+                        'url' => static::get_asset_url('public/vendor/flickity-2.3.0/flickity.css'),
+                        'url.min' => static::get_asset_url('public/vendor/flickity-2.3.0/flickity.min.css'),
+                    ],
+                    'version' => '3.5.1',
+                ),
             ));
             foreach ($defaultAssetCSS as $handler => $asset) {
                 $asset = wp_parse_args($asset, array(
@@ -90,8 +97,11 @@ if (!class_exists(AssetManager::class)) {
              * Register default JS resources to Jankx Asset Manager
              */
             $defaultAssetJs = apply_filters('jankx_default_js_resources', array(
-                'glide' => array(
-                    'url' => static::get_asset_url('public/vendor/glide-3.5.1/umd.js'),
+                'flickity' => array(
+                    'url' => [
+                        'url' => static::get_asset_url('public/vendor/flickity-2.3.0/flickity.pkgd.js'),
+                        'url.min' => static::get_asset_url('public/vendor/flickity-2.3.0/flickity.pkgd.min.js'),
+                    ],
                     'version' => '3.5.1',
                 ),
                 'jankx-common' => array(
