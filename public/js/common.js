@@ -179,3 +179,19 @@ if (stickyHeader) {
         }
     }
 }
+
+const megaMenu = document.querySelector('.sticky-header .mega-menu');
+if (megaMenu) {
+    megaMenu.addEventListener('mouseover', function(e){
+        document.querySelector('.jankx-site-header').classList.add('menu-hover');
+        window['hovermenu'] = true;
+    });
+    document.querySelector('body').addEventListener('mouseover', function(e){
+        const target = jQuery(e.target);
+        const isHoveredMenu = target.hasClass('mega-menu') || target.parents('.mega-menu').length > 0;
+        if (typeof window['hovermenu'] !== 'undefined' && window['hovermenu'] && !isHoveredMenu) {
+            document.querySelector('.jankx-site-header').classList.remove('menu-hover')
+            delete window['hovermenu'];
+        }
+    });
+}
