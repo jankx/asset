@@ -35,7 +35,7 @@ class Bucket
     }
 
     /**
-     * @return self
+     * @return \Jankx\Asset\Bucket
      */
     public function css($handle, $cssUrl = null, $dependences = [], $version = null, $media = 'all', $preload = false)
     {
