@@ -2,6 +2,10 @@
 
 namespace Jankx\Asset;
 
+if (!defined('ABSPATH')) {
+    exit('Cheatin huh?');
+}
+
 class JsItem extends AssetItem
 {
     protected $isRegistered = false;

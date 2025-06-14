@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit('Cheatin huh?');
+}
 if (!function_exists('asset')) {
     function asset()
     {

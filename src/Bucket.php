@@ -2,6 +2,10 @@
 
 namespace Jankx\Asset;
 
+if (!defined('ABSPATH')) {
+    exit('Cheatin huh?');
+}
+
 use Exception;
 
 class Bucket

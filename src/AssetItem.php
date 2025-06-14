@@ -2,6 +2,10 @@
 
 namespace Jankx\Asset;
 
+if (!defined('ABSPATH')) {
+    exit('Cheatin huh?');
+}
+
 abstract class AssetItem implements AssetInterface
 {
     protected $hasDependences = false;

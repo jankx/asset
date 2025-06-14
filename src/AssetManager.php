@@ -2,6 +2,10 @@
 
 namespace Jankx\Asset;
 
+if (!defined('ABSPATH')) {
+    exit('Cheatin huh?');
+}
+
 use Jankx\Asset\Cache;
 
 if (!class_exists(AssetManager::class)) {
